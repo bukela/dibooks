@@ -8,10 +8,11 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }} {{ app()->version() }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -28,7 +29,13 @@
                     </div>
 
                     <div class="navbar-menu" id="navMenu">
-                        <div class="navbar-start"></div>
+                        <div class="navbar-start">
+                            @if (Auth::user())
+                            <a class="navbar-item " href="#">ULAZ</a>
+                            <a class="navbar-item " href="#">IZLAZ</a>
+                            <a class="navbar-item " href="#">DELOVODNIK</a>
+                            @endif
+                        </div>
 
                         <div class="navbar-end">
                             @if (Auth::guest())

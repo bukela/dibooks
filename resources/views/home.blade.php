@@ -12,7 +12,7 @@
                     </header>
 
                     <div class="card-content">
-                        You are logged in!
+                       <span class="username">{{ Auth::user()->name }}</span> You are logged in!
                     </div>
                 </nav>
             </div>
