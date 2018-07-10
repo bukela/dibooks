@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\OutgoingInvoices;
+use App\InvoiceItems;
 use Illuminate\Http\Request;
 
-class OutgoingInvoicesController extends Controller
+class InvoiceItemsController extends Controller
 {
-    public function __construct() {
-        
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -45,10 +41,10 @@ class OutgoingInvoicesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\OutgoingInvoices  $outgoingInvoices
+     * @param  \App\InvoiceItems  $invoiceItems
      * @return \Illuminate\Http\Response
      */
-    public function show(OutgoingInvoices $outgoingInvoices)
+    public function show(InvoiceItems $invoiceItems)
     {
         //
     }
@@ -56,10 +52,10 @@ class OutgoingInvoicesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\OutgoingInvoices  $outgoingInvoices
+     * @param  \App\InvoiceItems  $invoiceItems
      * @return \Illuminate\Http\Response
      */
-    public function edit(OutgoingInvoices $outgoingInvoices)
+    public function edit(InvoiceItems $invoiceItems)
     {
         //
     }
@@ -68,10 +64,10 @@ class OutgoingInvoicesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\OutgoingInvoices  $outgoingInvoices
+     * @param  \App\InvoiceItems  $invoiceItems
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OutgoingInvoices $outgoingInvoices)
+    public function update(Request $request, InvoiceItems $invoiceItems)
     {
         //
     }
@@ -79,10 +75,10 @@ class OutgoingInvoicesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\OutgoingInvoices  $outgoingInvoices
+     * @param  \App\InvoiceItems  $invoiceItems
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OutgoingInvoices $outgoingInvoices)
+    public function destroy(InvoiceItems $invoiceItems)
     {
         //
     }

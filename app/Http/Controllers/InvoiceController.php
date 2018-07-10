@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Invoice;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class InvoiceController extends Controller
 {
-    public function __construct() {
-        
-        $this->middleware('auth');
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -46,10 +41,10 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Invoice $invoice)
     {
         //
     }
@@ -57,10 +52,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Invoice $invoice)
     {
         //
     }
@@ -69,10 +64,10 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Client  $client
+     * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Invoice $invoice)
     {
         //
     }
@@ -80,10 +75,10 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Invoice $invoice)
     {
         //
     }

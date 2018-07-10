@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OutgoingInvoices extends Model
+class Invoice extends Model
 {
     public function clients() {
-
-        return $this->hasMany(Client::class);
-
+        
+        return $this->belongsTo(Client::class);
     }
 }

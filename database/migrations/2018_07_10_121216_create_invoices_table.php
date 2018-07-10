@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorkbooksTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateWorkbooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('workbooks', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('broj');
-            $table->text('predmet');
+            $table->integer('client_id');
+            $table->string('broj_fakture');
+            $table->text('napomena');
+            $table->enum('valuta', ['RSD', 'EUR', 'USD'])->default('RSD');
+            $table->decimal('placen_iznos',10,2);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateWorkbooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('workbooks');
+        Schema::dropIfExists('invoices');
     }
 }

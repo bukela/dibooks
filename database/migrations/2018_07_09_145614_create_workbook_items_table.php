@@ -16,11 +16,12 @@ class CreateWorkbookItemsTable extends Migration
         Schema::create('workbook_items', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('workbook_id')->unsigned();
-            $table->foreign('workbook_id')->references('id')->on('workbooks');
-            $table->string('sender')->nullable();
-            $table->integer('workbook_number')->nullable();
-            $table->date('workbook_date')->nullable();
-            $table->date('arrived_at')->nullable();
+            $table->foreign('workbook_id')->references('id')->on('workbooks')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('broj');
+            $table->string('posiljalac')->nullable();
+            $table->integer('podbroj')->nullable();
+            $table->date('datum_prijema')->nullable();
+            $table->date('datum')->nullable();
             $table->timestamps();
         });
     }

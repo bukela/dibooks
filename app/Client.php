@@ -9,4 +9,8 @@ class Client extends Model
     protected $fillable = [
         'name', 'email', 'password', 'pib', 'address', 'phone'
     ];
+
+    public function invoices() {
+        return $this->hasMany(OutgoingInvoices::class);
+    }
 }
