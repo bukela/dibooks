@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $fillable = [
-        'name', 'email', 'password', 'pib', 'address', 'phone'
+        'naziv', 'email', 'mesto', 'pib', 'jmbg', 'telefon', 'tekuci_racun', 'osoba_za_kontakt', 'adresa'
     ];
 
-    public function invoices() {
-        return $this->hasMany(OutgoingInvoices::class);
+    // protected $guarded = [];
+
+    public function invoice() {
+
+        return $this->hasMany(IncomingInvoice::class);
+    }
+
+    public function incoming_invoice() {
+
+        return $this->hasMany(IncomingInvoice::class);
     }
 }

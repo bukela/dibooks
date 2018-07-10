@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddClientRequest;
 
 class ClientController extends Controller
 {
@@ -29,7 +30,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('addClient');
     }
 
     /**
@@ -40,7 +41,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $client = new Client;
+        Client::create($request->all());
+        // $client = $request->all();
+        // $client->save();
+        return redirect(route('addClient'));
     }
 
     /**
