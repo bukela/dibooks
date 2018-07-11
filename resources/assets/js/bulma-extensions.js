@@ -11,7 +11,7 @@ var bulmaTagsinput = require('bulma-extensions/bulma-tagsinput/dist/js/bulma-tag
 
 // Instantiate
 bulmaAccordion.attach();
-bulmaCalendar.attach();
+// bulmaCalendar.attach();
 bulmaCarousel.attach();
 bulmaIconpicker.attach();
 bulmaQuickview.attach();

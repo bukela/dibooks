@@ -39,14 +39,14 @@
                             <div class="field">
                                 <label class="label">Datum Prijema</label>
                                 <div class="control">
-                                    <input class="input" name="datum_prijema" type="text" placeholder="Datum Prijema">
+                                    <input class="input" name="datum_prijema" type="text" id="datepicker" placeholder="Datum Prijema">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Datum Fakture</label>
                                 <div class="control">
-                                    <input class="input" name="datum_fakture" type="text" placeholder="Datum Fakture">
+                                    <input class="input" name="datum_fakture" type="date" placeholder="Datum Fakture">
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                             <div class="field">
                                 <label class="label">Datum Placanja</label>
                                 <div class="control">
-                                    <input class="input" name="datum_placanja" type="text" placeholder="Datum Placanja">
+                                    <input class="input" name="datum_placanja" type="date" placeholder="Datum Placanja">
                                 </div>
                             </div>
 

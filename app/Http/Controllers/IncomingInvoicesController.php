@@ -6,6 +6,7 @@ use App\Client;
 use App\IncomingInvoices;
 use Illuminate\Http\Request;
 use App\IncomingInvoice;
+use Illuminate\Support\Facades\Session;
 
 class IncomingInvoicesController extends Controller
 {
