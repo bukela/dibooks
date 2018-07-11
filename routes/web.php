@@ -18,3 +18,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/client/create', 'ClientController@create')->name('addClient');
 Route::post('/client/store', 'ClientController@store')->name('addClient.store');
 
+Route::get('/invoice/create', 'InvoiceController@create')->name('addInvoice');
+Route::post('/invoice/store', 'InvoiceController@store')->name('addInvoice.store');
+
+Route::get('/incoming-invoice/create', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
+Route::post('/incoming-invoice/store', 'IncomingInvoicesController@store')->name('addIncomingInvoice.store');
+

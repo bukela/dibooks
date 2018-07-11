@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Invoice;
 use Illuminate\Http\Request;
+use App\Http\Requests\InvoiceRequest;
+use Illuminate\Support\Facades\Session;
 
 class InvoiceController extends Controller
 {
@@ -24,7 +27,9 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+
+        return view('addInvoice', compact('clients'));
     }
 
     /**
@@ -33,9 +38,14 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InvoiceRequest $request)
     {
-        //
+
+        Invoice::create($request->all());
+
+        Session::flash('success', 'Faktura kreirana');
+        
+        return redirect(route('addInvoice'));
     }
 
     /**

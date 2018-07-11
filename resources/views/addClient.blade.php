@@ -12,15 +12,9 @@
                     </header>
 
                     <div class="card-content">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li class="has-text-danger">{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                            @include('layouts.errors')
+                            @include('layouts.success')
+                            
                             <form action="{{ route('addClient.store') }}" method="post">
                                 {{ csrf_field() }}
                             <div class="field">
@@ -91,9 +85,9 @@
                                 </div>
                             </div>
 
-                            <div class="field is-grouped">
-                                <div class="control">
-                                    <button class="button is-link" type="submit">Submit</button>
+                            <div class="field">
+                                <div class="control has-text-centered">
+                                    <button class="button is-primary is-outlined" type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>

@@ -19,12 +19,12 @@ class CreateClientsTable extends Migration
             $table->string('adresa');
             $table->string('mesto');
             $table->string('pib');
-            $table->integer('jmbg');
+            $table->string('jmbg');
             $table->string('tekuci_racun');
             $table->string('telefon');
-            $table->string('email')->unique();
-            $table->string('osoba_za_kontakt');
-            $table->text('napomena');
+            $table->string('email');
+            $table->string('osoba_za_kontakt')->nullable();
+            $table->text('napomena')->nullable();
             $table->timestamps();
         });
     }

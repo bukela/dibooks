@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
-use App\Http\Requests\AddClientRequest;
+use App\Http\Requests\ClientRequest;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
@@ -39,12 +40,13 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
         // $client = new Client;
         Client::create($request->all());
         // $client = $request->all();
         // $client->save();
+        Session::flash('success', 'Klijent kreiran');
         return redirect(route('addClient'));
     }
 

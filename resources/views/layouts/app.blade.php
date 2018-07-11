@@ -32,7 +32,8 @@
                     <div class="navbar-menu" id="navMenu">
                         <div class="navbar-start">
                             @if (Auth::user())
-                            <a class="navbar-item " href="#">FAKTURE</a>
+                        <a class="navbar-item " href="{{ route('addInvoice') }}">DODAJ FAKTURU</a>
+                        <a class="navbar-item " href="{{ route('addIncomingInvoice') }}">ULAZNE FAKTURE</a>
                             <a class="navbar-item " href="#">DELOVODNIK</a>
                         <a class="navbar-item " href="{{ route('addClient') }}">DODAJ KLIJENTA</a>
                             @endif

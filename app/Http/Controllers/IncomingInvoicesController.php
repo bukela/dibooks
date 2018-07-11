@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\IncomingInvoices;
 use Illuminate\Http\Request;
+use App\IncomingInvoice;
 
 class IncomingInvoicesController extends Controller
 {
@@ -28,7 +30,9 @@ class IncomingInvoicesController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::all();
+        
+        return view('addIncomingInvoice', compact('clients'));
     }
 
     /**
@@ -39,7 +43,11 @@ class IncomingInvoicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        IncomingInvoice::create($request->all());
+
+        Session::flash('success', 'Ulazna faktura kreirana');
+        
+        return redirect(route('addIncomingInvoice'));
     }
 
     /**

@@ -16,10 +16,10 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('client_id');
-            $table->string('broj_fakture');
-            $table->text('napomena');
+            $table->string('broj_fakture')->unique();
+            $table->text('napomena')->nullable();
             $table->enum('valuta', ['RSD', 'EUR', 'USD'])->default('RSD');
-            $table->decimal('placen_iznos',10,2);
+            $table->decimal('placen_iznos',10,2)->nullable();
             $table->timestamps();
         });
     }
