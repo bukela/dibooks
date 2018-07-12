@@ -80,33 +80,33 @@
                             <div class="field">
                                 <label class="label">Kolicina</label>
                                 <div class="control">
-                                        <textarea class="input" name="kolicina" type="text" placeholder="Kolicina"></textarea>
+                                        <input class="input" name="kolicina" type="text" placeholder="Kolicina"></input>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Iznos</label>
                                 <div class="control">
-                                        <textarea class="input" name="iznos" type="text" placeholder="Iznos"></textarea>
+                                        <input class="input" name="iznos" type="text" placeholder="Iznos"></input>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Vrednost</label>
                                 <div class="control">
-                                        <textarea class="input" name="vrednost" type="text" placeholder="Vrednost"></textarea>
+                                        <input class="input" name="vrednost" type="text" placeholder="Vrednost"></input>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Osnovica</label>
                                 <div class="control">
-                                        <textarea class="input" name="osnovica" type="text" placeholder="Osnovica"></textarea>
+                                        <input class="input" name="osnovica" type="text" placeholder="Osnovica"></input>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Iznos PDV</label>
                                 <div class="control">
-                                        <textarea class="input" name="iznos_pdv" type="text" placeholder="Iznos PDV"></textarea>
+                                        <input class="input" name="iznos_pdv" type="text" placeholder="Iznos PDV"></input>
                                 </div>
                             </div>
 
