@@ -55,14 +55,14 @@
                             </div>
 
                             <div class="field">
-                                <label class="label">Datum Prijema</label>
+                                <label class="label">Datum Prijema <i class="fa fa-calendar-alt"></i></label>
                                 <div class="control">
                                     <input class="input" name="datum_prijema" type="date" placeholder="Datum Prijema"></input>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label class="label">Datum</label>
+                                <label class="label">Datum <i class="fa fa-calendar-alt"></i></label>
                                 <div class="control">
                                     <input class="input" name="datum" type="date" placeholder="Datum"></input>
                                 </div>
