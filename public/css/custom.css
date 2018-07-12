@@ -40,6 +40,14 @@
     font-weight: 700;
     font-size: 1.5em;
 }
+
+.input-date {
+    width: auto;
+}
+
+@media print {
+    #Header, #Footer, .print-window { display: none !important; }
+ }
 /* .table-client {
     width: 30%;
 }

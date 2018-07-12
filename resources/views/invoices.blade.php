@@ -23,6 +23,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <button class="button print-window"><i class="fa fa-print"></i></button>
             </div>
     </div>
 </div>

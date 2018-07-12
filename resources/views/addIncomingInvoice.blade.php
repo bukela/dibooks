@@ -39,14 +39,14 @@
                             <div class="field">
                                 <label class="label">Datum Prijema <i class="fa fa-calendar-alt"></i></label>
                                 <div class="control">
-                                    <input class="input" name="datum_prijema" type="date" placeholder="Datum Prijema">
+                                    <input class="input input-date" name="datum_prijema" type="date" placeholder="Datum Prijema">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Datum Fakture <i class="fa fa-calendar-alt"></i></label>
                                 <div class="control">
-                                    <input class="input" name="datum_fakture" type="date" placeholder="Datum Fakture">
+                                    <input class="input input-date" name="datum_fakture" type="date" placeholder="Datum Fakture">
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                             <div class="field">
                                 <label class="label">Datum Placanja <i class="fa fa-calendar-alt"></i></label>
                                 <div class="control">
-                                    <input class="input" name="datum_placanja" type="date" placeholder="Datum Placanja">
+                                    <input class="input input-date" name="datum_placanja" type="date" placeholder="Datum Placanja">
                                 </div>
                             </div>
 

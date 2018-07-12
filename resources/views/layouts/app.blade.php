@@ -15,6 +15,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         {{-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"> --}}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="{{ asset('css/print.css') }}" rel="stylesheet" media="print" type="text/css">
     </head>
     <body>
         <div id="app">
@@ -91,6 +92,11 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+            $('.print-window').click(function() {
+                window.print();
+            });
+        </script>
         {{-- <script src="
             https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
