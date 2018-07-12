@@ -7,7 +7,7 @@
                 <nav class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            <span class="username">DODAJ FAKTURU&nbsp;&nbsp;<i class="fa fa-book"></i></span>
+                            <span class="username">DODAJ FAKTURU&nbsp;&nbsp;<i class="fa fa-folder-open"></i></span>
                         </p>
                     </header>
 
@@ -59,6 +59,63 @@
                                         <textarea class="textarea" name="napomena" type="text" placeholder="Napomena"></textarea>
                                 </div>
                             </div>
+                            {{-- invoice items --}}
+                            <div class="field">
+                                <label class="label">Opis</label>
+                                <div class="control">
+                                        <textarea class="textarea" name="opis" type="text" placeholder="Opis"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Jedinica Mere</label>
+                                <div class="select is-small">
+                                        <select name="jedinica_mere" id="jedinica_mere">
+                                            <option value="usluga">Usluga</option>
+                                            <option value="komad">Komad</option>
+                                        </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Kolicina</label>
+                                <div class="control">
+                                        <textarea class="input" name="kolicina" type="text" placeholder="Kolicina"></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Iznos</label>
+                                <div class="control">
+                                        <textarea class="input" name="iznos" type="text" placeholder="Iznos"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Vrednost</label>
+                                <div class="control">
+                                        <textarea class="input" name="vrednost" type="text" placeholder="Vrednost"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Osnovica</label>
+                                <div class="control">
+                                        <textarea class="input" name="osnovica" type="text" placeholder="Osnovica"></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Iznos PDV</label>
+                                <div class="control">
+                                        <textarea class="input" name="iznos_pdv" type="text" placeholder="Iznos PDV"></textarea>
+                                </div>
+                            </div>
+
+                            {{-- <div class="field">
+                                <label class="label">Vrednost sa PDV</label>
+                                <div class="control">
+                                        <textarea class="input" name="vrednost_sa_pdv" type="text" placeholder="Vrednost sa PDV"></textarea>
+                                </div>
+                            </div> --}}
 
                             <div class="field">
                                 <div class="control has-text-centered">

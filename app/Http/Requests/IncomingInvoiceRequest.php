@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InvoiceRequest extends FormRequest
+class IncomingInvoiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,19 +25,15 @@ class InvoiceRequest extends FormRequest
     {
         return [
             'client_id' => 'required',
-            'broj_fakture' => 'required|unique:invoices,broj_fakture',
-            // 'opis' => 'required'
-            // 'valuta' => 'required',
-            // 'napomena' => 'required',
-            // 'placen_iznos' => 'required|numeric'
+            'redni_broj' => 'required|unique:invoices,broj_fakture',
         ];
     }
 
     public function messages() {
         return [
-            'broj_fakture.required' => 'Broj fakture je obavezan',
-            'broj_fakture.unique' => 'Broj fakture vec postoji u bazi',
-            'client_id.required' => 'Klijent je obavezan',
+            'redni_broj.required' => 'Broj fakture je obavezan',
+            'redni_broj.unique' => 'Broj fakture vec postoji u bazi',
+            'client_id.required' => 'Klijent je obavezan'
         ];
     }
 }

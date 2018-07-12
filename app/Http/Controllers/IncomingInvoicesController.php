@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\IncomingInvoice;
 use App\IncomingInvoices;
 use Illuminate\Http\Request;
-use App\IncomingInvoice;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\IncomingInvoiceRequest;
 
 class IncomingInvoicesController extends Controller
 {
@@ -42,7 +43,7 @@ class IncomingInvoicesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IncomingInvoiceRequest $request)
     {
         IncomingInvoice::create($request->all());
 

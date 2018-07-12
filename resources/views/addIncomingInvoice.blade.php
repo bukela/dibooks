@@ -7,7 +7,7 @@
                 <nav class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            <span class="username">ULAZNE FAKTURE&nbsp;&nbsp;<i class="fa fa-book"></i></span>
+                            <span class="username">ULAZNE FAKTURE&nbsp;&nbsp;<i class="fa fa-arrow-down"></i>&nbsp;<i class="fa fa-folder-open"></i></span>
                         </p>
                     </header>
 
@@ -46,7 +46,7 @@
                             <div class="field">
                                 <label class="label">Datum Fakture</label>
                                 <div class="control">
-                                    <input class="input" name="datum_fakture" type="date" placeholder="Datum Fakture">
+                                    <input class="input" name="datum_fakture" type="text" id="datepicker2" placeholder="Datum Fakture">
                                 </div>
                             </div>
 
@@ -78,7 +78,7 @@
                             <div class="field">
                                 <label class="label">Datum Placanja</label>
                                 <div class="control">
-                                    <input class="input" name="datum_placanja" type="date" placeholder="Datum Placanja">
+                                    <input class="input" name="datum_placanja" type="text" id="datepicker3" placeholder="Datum Placanja">
                                 </div>
                             </div>
 

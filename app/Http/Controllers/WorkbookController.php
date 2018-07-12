@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Workbook;
+use App\WorkbookItem;
 use Illuminate\Http\Request;
+use App\Http\Requests\WorkbookRequest;
+use Illuminate\Support\Facades\Session;
 
 class WorkbookController extends Controller
 {
@@ -40,9 +43,28 @@ class WorkbookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WorkbookRequest $request)
     {
-        //
+        $workbook = new Workbook;
+        $workbook_item = new WorkbookItem;
+
+        $workbook->osnovni_broj = $request->osnovni_broj;
+        $workbook->predmet = $request->predmet;
+
+        $workbook->save();
+
+        $workbook_item->workbook_id = Workbook::latest()->first()->id;
+        $workbook_item->broj = $request->broj;
+        $workbook_item->posiljalac = $request->posiljalac;
+        $workbook_item->podbroj = $request->podbroj;
+        $workbook_item->datum_prijema = $request->datum_prijema;
+        $workbook_item->datum = $request->datum;
+
+        $workbook_item->save();
+
+        Session::flash('success', 'Delovodnik kreiran');
+        
+        return redirect(route('addWorkbook'));
     }
 
     /**

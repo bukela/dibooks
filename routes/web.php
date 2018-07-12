@@ -24,3 +24,6 @@ Route::post('/invoice/store', 'InvoiceController@store')->name('addInvoice.store
 Route::get('/incoming-invoice/create', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
 Route::post('/incoming-invoice/store', 'IncomingInvoicesController@store')->name('addIncomingInvoice.store');
 
+Route::get('/workbook/create', 'WorkbookController@create')->name('addWorkbook');
+Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
+

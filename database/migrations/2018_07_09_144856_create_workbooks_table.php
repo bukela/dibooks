@@ -15,7 +15,7 @@ class CreateWorkbooksTable extends Migration
     {
         Schema::create('workbooks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('broj');
+            $table->string('osnovni_broj');
             $table->text('predmet');
             $table->timestamps();
         });

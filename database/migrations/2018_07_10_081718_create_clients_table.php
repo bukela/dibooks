@@ -18,11 +18,11 @@ class CreateClientsTable extends Migration
             $table->string('naziv');
             $table->string('adresa');
             $table->string('mesto');
-            $table->string('pib');
-            $table->string('jmbg');
-            $table->string('tekuci_racun');
-            $table->string('telefon');
-            $table->string('email');
+            $table->string('pib')->nullable();
+            $table->string('jmbg')->nullable();
+            $table->string('tekuci_racun')->nullable();
+            $table->string('telefon')->nullable();
+            $table->string('email')->nullable();
             $table->string('osoba_za_kontakt')->nullable();
             $table->text('napomena')->nullable();
             $table->timestamps();

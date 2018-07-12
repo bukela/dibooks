@@ -17,14 +17,14 @@ class CreateInvoiceItemsTable extends Migration
             $table->increments('id');
             $table->integer('invoice_id')->unsigned();
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade')->onUpdate('cascade');
-            $table->text('opis');
+            $table->text('opis')->nullable();
             $table->enum('jedinica_mere', ['usluga', 'komad'])->default('usluga');
-            $table->integer('kolicina');
-            $table->decimal('iznos',10,2);
-            $table->decimal('vrednost',10,2);
-            $table->decimal('osnovica',10,2);
-            $table->decimal('iznos_pdv',4,2);
-            $table->decimal('vrednost_sa_pdv',10,2);
+            $table->integer('kolicina')->nullable();
+            $table->decimal('iznos',10,2)->nullable();
+            $table->decimal('vrednost',10,2)->nullable();
+            $table->decimal('osnovica',10,2)->nullable();
+            $table->decimal('iznos_pdv',4,2)->nullable();
+            $table->decimal('vrednost_sa_pdv',10,2)->nullable();
             $table->timestamps();
         });
     }

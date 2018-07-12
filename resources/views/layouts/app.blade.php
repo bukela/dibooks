@@ -35,7 +35,7 @@
                             @if (Auth::user())
                         <a class="navbar-item " href="{{ route('addInvoice') }}">DODAJ FAKTURU</a>
                         <a class="navbar-item " href="{{ route('addIncomingInvoice') }}">ULAZNE FAKTURE</a>
-                            <a class="navbar-item " href="#">DELOVODNIK</a>
+                            <a class="navbar-item " href="{{ route('addWorkbook') }}">DELOVODNIK</a>
                         <a class="navbar-item " href="{{ route('addClient') }}">DODAJ KLIJENTA</a>
                             @endif
                         </div>
@@ -70,15 +70,19 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="
+            https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			crossorigin="anonymous
+        "></script>
         <script>
         $(function() {
-          $( "#datepicker" ).datepicker();
+          $( "#datepicker,#datepicker2,#datepicker3" ).datepicker();
         });
         </script>
          <script type="text/javascript">
             $(function() {
-                    $( "#datepicker" ).datepicker( "option", "dateFormat", 'yy-mm-dd');
+                $( "#datepicker,#datepicker2,#datepicker3" ).datepicker( "option", "dateFormat", 'yy-mm-dd');
             });
         </script>
         
