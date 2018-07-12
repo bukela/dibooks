@@ -22,6 +22,7 @@ Route::get('/delovodnici', 'WorkbookController@index')->name('workbooks');
 
 Route::get('/client/create', 'ClientController@create')->name('addClient');
 Route::post('/client/store', 'ClientController@store')->name('addClient.store');
+Route::get('/client/{id}', 'ClientController@show')->name('client.show');
 
 Route::get('/invoice/create', 'InvoiceController@create')->name('addInvoice');
 Route::post('/invoice/store', 'InvoiceController@store')->name('addInvoice.store');
