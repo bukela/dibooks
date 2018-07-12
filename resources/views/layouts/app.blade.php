@@ -21,7 +21,7 @@
             <nav class="navbar has-shadow">
                 <div class="container">
                     <div class="navbar-brand">
-                        <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'Laravel') }}</a>
+                        <a href="{{ url('/') }}" class="navbar-item app-title">{{ config('app.name', 'Laravel') }}</a>
 
                         <div class="navbar-burger burger" data-target="navMenu">
                             <span></span>
@@ -41,7 +41,7 @@
                                     <a class="navbar-link">PREGLED</a>
 
                                     <div class="navbar-dropdown">
-                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                        <a class="navbar-item" href="{{ route('clients') }}">
                                             KLIJENTI
                                         </a>
                                     
@@ -49,11 +49,11 @@
                                             FAKTURE
                                         </a>
                                     
-                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                        <a class="navbar-item" href="{{ route('incominginvoices') }}">
                                             ULAZNE FAKTURE
                                         </a>
                                     
-                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                        <a class="navbar-item" href="{{ route('workbooks') }}">
                                             DELOVODNICI
                                         </a>
                                     </div>

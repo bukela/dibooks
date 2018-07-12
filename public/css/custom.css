@@ -21,6 +21,25 @@
     margin-top: 2em;
 }
 
+.app-title {
+    background-color: #00D1B2;
+    color: white;
+    text-decoration: none;
+    
+}
+
+.app-title:hover {
+    background-color: #00D1B2 !important;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.page-title {
+    margin-top: 1em;
+    color: #00D1B2;
+    font-weight: 700;
+    font-size: 1.5em;
+}
 /* .table-client {
     width: 30%;
 }

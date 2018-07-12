@@ -23,7 +23,8 @@ class WorkbookController extends Controller
      */
     public function index()
     {
-        //
+        $workbooks = Workbook::all();
+        return view('workbooks', compact('workbooks'));
     }
 
     /**

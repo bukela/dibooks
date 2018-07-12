@@ -22,7 +22,8 @@ class IncomingInvoicesController extends Controller
      */
     public function index()
     {
-        //
+        $incoinvoices = IncomingInvoice::all();
+        return view('incominginvoices', compact('incoinvoices'));
     }
 
     /**

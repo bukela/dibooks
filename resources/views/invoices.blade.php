@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+        <div class="has-text-centered"><p class="page-title">FAKTURE<span class="username">&nbsp;<i class="fa fa-folder"></i></span></p></div>
     <div class="columns is-centered">
             <div class="column is-four-fifths">
                     <table class="table is-fullwidth is-bordered">
