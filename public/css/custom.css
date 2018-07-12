@@ -12,3 +12,23 @@
 .error-holder {
     margin-bottom: 5px;
 }
+
+.invoice-list {
+    padding: 0.8em;
+}
+
+.table {
+    margin-top: 2em;
+}
+
+/* .table-client {
+    width: 30%;
+}
+
+.table-number {
+    width: 10%;
+}
+
+.table-text {
+    width: 60%;
+} */

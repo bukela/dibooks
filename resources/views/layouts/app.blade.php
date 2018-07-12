@@ -33,10 +33,31 @@
                     <div class="navbar-menu" id="navMenu">
                         <div class="navbar-start">
                             @if (Auth::user())
-                        <a class="navbar-item " href="{{ route('addInvoice') }}">DODAJ FAKTURU</a>
-                        <a class="navbar-item " href="{{ route('addIncomingInvoice') }}">ULAZNE FAKTURE</a>
+                            <a class="navbar-item " href="{{ route('addClient') }}">DODAJ KLIJENTA</a>
+                            <a class="navbar-item " href="{{ route('addInvoice') }}">DODAJ FAKTURU</a>
+                            <a class="navbar-item " href="{{ route('addIncomingInvoice') }}">ULAZNE FAKTURE</a>
                             <a class="navbar-item " href="{{ route('addWorkbook') }}">DELOVODNIK</a>
-                        <a class="navbar-item " href="{{ route('addClient') }}">DODAJ KLIJENTA</a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                    <a class="navbar-link">PREGLED</a>
+
+                                    <div class="navbar-dropdown">
+                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                            KLIJENTI
+                                        </a>
+                                    
+                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                            FAKTURE
+                                        </a>
+                                    
+                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                            ULAZNE FAKTURE
+                                        </a>
+                                    
+                                        <a class="navbar-item" href="{{ route('invoices') }}">
+                                            DELOVODNICI
+                                        </a>
+                                    </div>
+                            </div>
                             @endif
                         </div>
 
