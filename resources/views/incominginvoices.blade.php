@@ -15,18 +15,20 @@
                             <th>Datum Fakture</th>
                             <th>Iznos</th>
                             <th>Valuta</th>
+                            <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach( $incoinvoices as $inco )
+                            @foreach( $incoinvoices as $incoming )
                             <tr>
-                                <td class="table-client">{{ $inco->client_id }}</td>
-                                <td class="table-number">{{ $inco->broj_fakture }}</td>
-                                <td class="table-text">{{ $inco->redni_broj }}</td>
-                                <td class="table-text">{{ $inco->datum_prijema }}</td>
-                                <td class="table-text">{{ $inco->datum_fakture }}</td>
-                                <td class="table-text">{{ $inco->iznos }}</td>
-                                <td class="table-text">{{ $inco->valuta }}</td>
+                                <td class="table-client">{{ $incoming->client->naziv }}</td>
+                                <td class="table-number">{{ $incoming->broj_fakture }}</td>
+                                <td class="table-text">{{ $incoming->redni_broj }}</td>
+                                <td class="table-text">{{ $incoming->datum_prijema }}</td>
+                                <td class="table-text">{{ $incoming->datum_fakture }}</td>
+                                <td class="table-text">{{ $incoming->iznos }}</td>
+                                <td class="table-text">{{ $incoming->valuta }}</td>
+                                <td class="table-text has-text-centered"><a href="{{ route('incoming.show',$incoming->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -12,6 +12,7 @@
                             <th>Predmet</th>
                             <th>Posiljalac</th>
                             <th>Datum Prijema</th>
+                            <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -19,8 +20,9 @@
                             <tr>
                                 <td class="table-client">{{ $workbook->osnovni_broj }}</td>
                                 <td class="table-number">{{ $workbook->predmet }}</td>
-                                <td class="table-text">{{ $workbook->posiljalac }}</td>
-                                <td class="table-text">{{ $workbook->datum_prijema }}</td>
+                                <td class="table-text">{{ $workbook->workbook_item->posiljalac }}</td>
+                                <td class="table-text">{{ $workbook->workbook_item->datum_prijema }}</td>
+                                <td class="table-text has-text-centered"><a href="{{ route('workbook.show',$workbook->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                             </tr>
                             @endforeach
                         </tbody>

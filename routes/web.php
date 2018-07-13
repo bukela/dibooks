@@ -26,10 +26,13 @@ Route::get('/client/{id}', 'ClientController@show')->name('client.show');
 
 Route::get('/invoice/create', 'InvoiceController@create')->name('addInvoice');
 Route::post('/invoice/store', 'InvoiceController@store')->name('addInvoice.store');
+Route::get('/invoice/{id}', 'InvoiceController@show')->name('invoice.show');
 
 Route::get('/incoming-invoice/create', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
 Route::post('/incoming-invoice/store', 'IncomingInvoicesController@store')->name('addIncomingInvoice.store');
+Route::get('/incoming-invoice/{id}', 'IncomingInvoicesController@show')->name('incoming.show');
 
 Route::get('/workbook/create', 'WorkbookController@create')->name('addWorkbook');
 Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
+Route::get('/workbook/{id}', 'WorkbookController@show')->name('workbook.show');
 

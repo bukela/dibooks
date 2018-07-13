@@ -25,4 +25,10 @@ class IncomingInvoice extends Model
         return date("d-m-Y", strtotime($value));
         
     }
+
+    public function getDatumPlacanjaAttribute($value) {
+
+        return date("d-m-Y", strtotime($value));
+        
+    }
 }

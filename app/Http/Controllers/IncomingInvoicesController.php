@@ -59,9 +59,10 @@ class IncomingInvoicesController extends Controller
      * @param  \App\IncomingInvoices  $incomingInvoices
      * @return \Illuminate\Http\Response
      */
-    public function show(IncomingInvoices $incomingInvoices)
+    public function show($id)
     {
-        //
+        $incoming = IncomingInvoice::findOrFail($id);
+        return view('incomingShow', compact('incoming'));
     }
 
     /**

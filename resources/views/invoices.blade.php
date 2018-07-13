@@ -11,19 +11,20 @@
                             <th>Klijent</th>
                             <th>Broj Fakture</th>
                             <th>Napomena</th>
+                            <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach( $invoices as $invoice )
                             <tr>
-                                <td class="table-client">{{ $invoice->client_id }}</td>
+                                <td class="table-client">{{ $invoice->client->naziv }}</td>
                                 <td class="table-number">{{ $invoice->broj_fakture }}</td>
                                 <td class="table-text">{{ $invoice->napomena }}</td>
+                                <td class="table-text has-text-centered"><a href="{{ route('invoice.show',$invoice->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <button class="button print-window"><i class="fa fa-print"></i></button>
             </div>
     </div>
 </div>

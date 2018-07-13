@@ -10,4 +10,16 @@ class WorkbookItem extends Model
 
         return $this->belongsTo(Workbook::class);
     }
+
+    public function getDatumPrijemaAttribute($value) {
+
+        return date("d-m-Y", strtotime($value));
+        
+    }
+
+    public function getDatumAttribute($value) {
+
+        return date("d-m-Y", strtotime($value));
+        
+    }
 }

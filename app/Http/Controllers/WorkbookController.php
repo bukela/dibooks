@@ -74,9 +74,10 @@ class WorkbookController extends Controller
      * @param  \App\Workbook  $workbook
      * @return \Illuminate\Http\Response
      */
-    public function show(Workbook $workbook)
+    public function show($id)
     {
-        //
+        $workbook = Workbook::findOrFail($id);
+        return view('workbookShow', compact('workbook'));
     }
 
     /**

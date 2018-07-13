@@ -13,6 +13,7 @@
                             <th>Mesto</th>
                             <th>Tekuci Racun</th>
                             <th>Email</th>
+                            <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -23,6 +24,7 @@
                                 <td class="table-text">{{ $client->mesto }}</td>
                                 <td class="table-text">{{ $client->tekuci_racun }}</td>
                                 <td class="table-text">{{ $client->email }}</td>
+                                <td class="table-text has-text-centered"><a href="{{ route('client.show',$client->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                             </tr>
                             @endforeach
                         </tbody>

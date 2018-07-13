@@ -11,9 +11,4 @@ class Workbook extends Model
         return $this->hasOne(WorkbookItem::class);
     }
 
-    public function getDatumPrijemaAttribute($value) {
-
-        return date("d-m-Y", strtotime($value));
-        
-    }
 }
