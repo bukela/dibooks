@@ -109,8 +109,12 @@ class WorkbookController extends Controller
      * @param  \App\Workbook  $workbook
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workbook $workbook)
+    public function destroy($id)
     {
-        //
+        $workbook = Workbook::findOrFail($id);
+        $workbook->delete();
+
+        Session::flash('success', 'Delovodnik Obrisan');
+        return redirect(route('workbooks'));
     }
 }

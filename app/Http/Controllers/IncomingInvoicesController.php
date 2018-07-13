@@ -94,8 +94,12 @@ class IncomingInvoicesController extends Controller
      * @param  \App\IncomingInvoices  $incomingInvoices
      * @return \Illuminate\Http\Response
      */
-    public function destroy(IncomingInvoices $incomingInvoices)
+    public function destroy($id)
     {
-        //
+        $client = IncomingInvoice::findOrFail($id);
+        $client->delete();
+
+        Session::flash('success', 'Ulazna Faktura Obrisana');
+        return redirect(route('incominginvoices'));
     }
 }

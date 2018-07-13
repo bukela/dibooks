@@ -15,7 +15,8 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('broj_fakture')->unique();
             $table->text('napomena')->nullable();
             $table->enum('valuta', ['RSD', 'EUR', 'USD'])->default('RSD');

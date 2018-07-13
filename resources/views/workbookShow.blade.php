@@ -27,7 +27,7 @@
                                 <td class="table-text">{{ $workbook->workbook_item->podbroj }}</td>
                                 <td class="table-text">{{ $workbook->workbook_item->datum_prijema }}</td>
                                 <td class="table-text">{{ $workbook->workbook_item->datum }}</td>
-                                <td class="table-text"><a href="{{ route('workbook.show',$workbook->id) }}"><i class="fa fa-edit edit-ico"></i></a>&nbsp;<i class="fa fa-trash-alt trash"></i></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('workbook.show',$workbook->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('workbook.delete',$workbook->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -117,8 +117,12 @@ class InvoiceController extends Controller
      * @param  \App\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $invoice)
+    public function destroy($id)
     {
-        //
+        $client = Invoice::findOrFail($id);
+        $client->delete();
+
+        Session::flash('success', 'Faktura Obrisana');
+        return redirect(route('invoices'));
     }
 }

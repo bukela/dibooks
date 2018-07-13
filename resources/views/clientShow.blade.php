@@ -35,7 +35,7 @@
                                 <td class="table-text">{{ $client->email }}</td>
                                 <td class="table-text">{{ $client->osoba_za_kontakt }}</td>
                                 <td class="table-text">{{ $client->napomena }}</td>
-                                <td class="table-text"><a href="{{ route('client.show',$client->id) }}"><i class="fa fa-edit edit-ico"></i></a>&nbsp;<i class="fa fa-trash-alt trash"></i></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('client.show',$client->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('client.delete',$client->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
