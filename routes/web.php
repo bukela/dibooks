@@ -20,19 +20,19 @@ Route::get('/ulazne-fakture', 'IncomingInvoicesController@index')->name('incomin
 Route::get('/klijenti', 'ClientController@index')->name('clients');
 Route::get('/delovodnici', 'WorkbookController@index')->name('workbooks');
 
-Route::get('/client/create', 'ClientController@create')->name('addClient');
+Route::get('/klijent/kreiraj', 'ClientController@create')->name('addClient');
 Route::post('/client/store', 'ClientController@store')->name('addClient.store');
-Route::get('/client/{id}', 'ClientController@show')->name('client.show');
+Route::get('/klijent/{id}', 'ClientController@show')->name('client.show');
 
-Route::get('/invoice/create', 'InvoiceController@create')->name('addInvoice');
+Route::get('/faktura/kreiraj', 'InvoiceController@create')->name('addInvoice');
 Route::post('/invoice/store', 'InvoiceController@store')->name('addInvoice.store');
-Route::get('/invoice/{id}', 'InvoiceController@show')->name('invoice.show');
+Route::get('/faktura/{id}', 'InvoiceController@show')->name('invoice.show');
 
-Route::get('/incoming-invoice/create', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
+Route::get('/ulazna-faktura/kreiraj', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
 Route::post('/incoming-invoice/store', 'IncomingInvoicesController@store')->name('addIncomingInvoice.store');
-Route::get('/incoming-invoice/{id}', 'IncomingInvoicesController@show')->name('incoming.show');
+Route::get('/ulazna-faktura/{id}', 'IncomingInvoicesController@show')->name('incoming.show');
 
-Route::get('/workbook/create', 'WorkbookController@create')->name('addWorkbook');
+Route::get('/delovodnik/kreiraj', 'WorkbookController@create')->name('addWorkbook');
 Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
-Route::get('/workbook/{id}', 'WorkbookController@show')->name('workbook.show');
+Route::get('/delovodnik/{id}', 'WorkbookController@show')->name('workbook.show');
 
