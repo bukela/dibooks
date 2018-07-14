@@ -45,4 +45,6 @@ Route::get('/delovodnik/kreiraj', 'WorkbookController@create')->name('addWorkboo
 Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
 Route::get('/delovodnik/{id}', 'WorkbookController@show')->name('workbook.show');
 Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workbook.delete');
+Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
+Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
 

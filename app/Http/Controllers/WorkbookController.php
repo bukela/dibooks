@@ -86,9 +86,10 @@ class WorkbookController extends Controller
      * @param  \App\Workbook  $workbook
      * @return \Illuminate\Http\Response
      */
-    public function edit(Workbook $workbook)
-    {
-        //
+    public function edit($id)
+    {   
+        $workbook = Workbook::findOrFail($id);
+        return view('workbookEdit', compact('workbook'));
     }
 
     /**
@@ -98,9 +99,26 @@ class WorkbookController extends Controller
      * @param  \App\Workbook  $workbook
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Workbook $workbook)
+    public function update(Request $request, $id)
     {
-        //
+        $workbook = Workbook::findOrFail($id);
+        $workbook_item = WorkbookItem::where('workbook_id', $id)->first();
+
+        $workbook->osnovni_broj = $request->osnovni_broj;
+        $workbook->predmet = $request->predmet;
+
+        $workbook->save();
+
+        $workbook_item->broj = $request->broj;
+        $workbook_item->posiljalac = $request->posiljalac;
+        $workbook_item->podbroj = $request->podbroj;
+        $workbook_item->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema')));
+        $workbook_item->datum = date("Y-m-d", strtotime($request->input('datum')));
+        
+        $workbook_item->save();
+        
+        Session::flash('success', 'Delovodnik Izmenjen');
+        return redirect(route('workbooks'));
     }
 
     /**

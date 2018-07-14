@@ -99,7 +99,7 @@ class InvoiceController extends Controller
         $invoice = Invoice::findOrFail($id);
         // $invoices = Invoice::all();
         $clients = Client::all();
-        return view('invoiceEdit', compact('invoice', 'clients', 'invoices'));
+        return view('invoiceEdit', compact('invoice', 'clients'));
     }
 
     /**
