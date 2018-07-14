@@ -24,7 +24,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="table-client">{{ $incoming->client_id }}</td>
+                                <td class="table-client">{{ $incoming->client->naziv }}</td>
                                 <td class="table-client">{{ $incoming->redni_broj }}</td>
                                 <td class="table-number">{{ $incoming->datum_prijema }}</td>
                                 <td class="table-text">{{ $incoming->datum_fakture }}</td>
@@ -35,7 +35,7 @@
                                 <td class="table-text">{{ $incoming->iznos }}</td>
                                 <td class="table-text">{{ $incoming->broj_izvoda }}</td>
                                 <td class="table-text">{{ $incoming->valuta }}</td>
-                                <td class="table-text has-text-centered"><a href="{{ route('incoming.show',$incoming->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('incoming.delete',$incoming->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('incoming.edit',$incoming->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('incoming.delete',$incoming->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

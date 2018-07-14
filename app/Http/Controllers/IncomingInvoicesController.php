@@ -71,9 +71,11 @@ class IncomingInvoicesController extends Controller
      * @param  \App\IncomingInvoices  $incomingInvoices
      * @return \Illuminate\Http\Response
      */
-    public function edit(IncomingInvoices $incomingInvoices)
+    public function edit($id)
     {
-        //
+        $incoming = IncomingInvoice::findOrFail($id);
+        $clients = Client::all();
+        return view('incomingEdit', compact('incoming', 'clients'));
     }
 
     /**
@@ -83,9 +85,25 @@ class IncomingInvoicesController extends Controller
      * @param  \App\IncomingInvoices  $incomingInvoices
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, IncomingInvoices $incomingInvoices)
+    public function update(IncomingInvoiceRequest $request, $id)
     {
-        //
+        // IncomingInvoice::findOrFail($id)->update($request->all());
+        $incoming = IncomingInvoice::findOrFail($id);
+
+        $incoming->client_id = $request->input('client_id');
+        $incoming->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema')));
+        $incoming->datum_fakture = date("Y-m-d", strtotime($request->input('datum_fakture')));
+        $incoming->broj_fakture = $request->input('broj_fakture');
+        $incoming->iznos_fakture = $request->input('iznos_fakture');
+        $incoming->nacin_placanja = $request->input('nacin_placanja');
+        $incoming->datum_placanja = date("Y-m-d", strtotime($request->input('datum_placanja')));
+        $incoming->iznos = $request->input('iznos');
+        $incoming->broj_izvoda = $request->input('broj_izvoda');
+        $incoming->valuta = $request->input('valuta');
+        $incoming->save();
+        
+        Session::flash('success', 'Ulazna Faktura Izmenjena');
+        return redirect(route('incominginvoices'));
     }
 
     /**

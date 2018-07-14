@@ -81,7 +81,7 @@
                             <div class="field">
                                 <label class="label">Napomena</label>
                                 <div class="control">
-                                        <textarea class="textarea" name="napomena" type="text" value="{{ $client->napomena }}" placeholder="Napomena"></textarea>
+                                        <textarea class="textarea" name="napomena" type="text" placeholder="Napomena">{{ $client->napomena }}</textarea>
                                 </div>
                             </div>
 

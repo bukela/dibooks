@@ -82,9 +82,11 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(ClientRequest $request, $id)
     {
-        //
+        Client::findOrFail($id)->update($request->all());
+        Session::flash('success', 'Klijent Izmenjen');
+        return redirect(route('clients'));
     }
 
     /**
