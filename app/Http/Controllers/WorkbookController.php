@@ -7,6 +7,7 @@ use App\WorkbookItem;
 use Illuminate\Http\Request;
 use App\Http\Requests\WorkbookRequest;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\WorkbookEditRequest;
 
 class WorkbookController extends Controller
 {
@@ -23,7 +24,8 @@ class WorkbookController extends Controller
      */
     public function index()
     {
-        $workbooks = Workbook::all();
+        // $workbooks = Workbook::all();
+        $workbooks = Workbook::orderBy('created_at','desc')->paginate(10);
         return view('workbooks', compact('workbooks'));
     }
 
@@ -99,7 +101,7 @@ class WorkbookController extends Controller
      * @param  \App\Workbook  $workbook
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WorkbookEditRequest $request, $id)
     {
         $workbook = Workbook::findOrFail($id);
         $workbook_item = WorkbookItem::where('workbook_id', $id)->first();

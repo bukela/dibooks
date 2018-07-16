@@ -77,7 +77,18 @@
 
 #toast-container>.toast-success {
     background-color: #00D1B2 !important;
-    }
+}
+
+li.page-item.active {
+    background: #00D1B2;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 15%;
+}
+
+span .page-link {
+    font-size: 2em;
+}
 /* .table-client {
     width: 30%;
 }

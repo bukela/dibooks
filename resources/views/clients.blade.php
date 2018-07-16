@@ -32,6 +32,11 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="columns">
+                        <div class="column is-2 is-offset-5">
+                            {{ $clients->links() }}
+                        </div>
+                    </div>
             </div>
     </div>
 </div>
