@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
-    public function __construct() {
-        
+    public function __construct()
+    {
+
         $this->middleware('auth');
 
     }
@@ -19,11 +20,19 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $clients = Client::all();
-        $clients = Client::orderBy('created_at','desc')->paginate(10);
-        return view('clients', compact('clients'));
+        // $clients = Client::orderBy('created_at', 'desc')->paginate(10);
+        // return view('clients', compact('clients'));
+        $query = $request->get('q');
+        if($query) {
+            $clients = $query ? Client::search($query)->orderBy('created_at','desc')->paginate(10) : Client::all();
+            return view('clients', compact('clients'));
+        } else {
+            $clients = Client::orderBy('created_at','desc')->paginate(10);
+            return view('clients', compact('clients'));
+        }
     }
 
     /**
@@ -104,4 +113,5 @@ class ClientController extends Controller
         Session::flash('success', 'Klijent Obrisan');
         return redirect(route('clients'));
     }
+
 }

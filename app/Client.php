@@ -21,4 +21,8 @@ class Client extends Model
 
         return $this->hasMany(IncomingInvoice::class);
     }
+
+    public function scopeSearch($query, $search) {
+        return $query->where('naziv', 'LIKE', "%$search%");
+    }
 }
