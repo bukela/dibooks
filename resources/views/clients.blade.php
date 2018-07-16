@@ -6,8 +6,8 @@
         
     <div class="columns is-centered">
             <div class="column is-four-fifths">
-                    {{-- @include('layouts.errors')
-                    @include('layouts.success') --}}
+                    @include('layouts.errors')
+                    {{-- @include('layouts.success') --}}
                     <table class="table is-fullwidth is-bordered">
                         <thead>
                           <tr>

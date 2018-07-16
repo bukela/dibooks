@@ -24,7 +24,7 @@ class WorkbookRequest extends FormRequest
     public function rules()
     {
         return [
-            'osnovni_broj' => 'required',
+            'osnovni_broj' => 'required|unique:workbooks,osnovni_broj',
             'predmet' => 'required'
         ];
     }
@@ -32,6 +32,7 @@ class WorkbookRequest extends FormRequest
     public function messages() {
         return [
             'osnovni_broj.required' => 'Broj delovodnika je obavezan',
+            'osnovni_broj.unique' => 'Broj delovodnika vec postoji u bazi',
             'predmet.required' => 'Predmet je obavezan',
         ];
     }

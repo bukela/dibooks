@@ -8,6 +8,7 @@ use App\IncomingInvoices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\IncomingInvoiceRequest;
+use App\Http\Requests\IncomingInvoiceEditRequest;
 
 class IncomingInvoicesController extends Controller
 {
@@ -85,7 +86,7 @@ class IncomingInvoicesController extends Controller
      * @param  \App\IncomingInvoices  $incomingInvoices
      * @return \Illuminate\Http\Response
      */
-    public function update(IncomingInvoiceRequest $request, $id)
+    public function update(IncomingInvoiceEditRequest $request, $id)
     {
         // IncomingInvoice::findOrFail($id)->update($request->all());
         $incoming = IncomingInvoice::findOrFail($id);

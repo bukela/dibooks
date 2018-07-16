@@ -12,8 +12,8 @@
                     </header>
 
                     <div class="card-content">
-                            {{-- @include('layouts.errors')
-                            @include('layouts.success') --}}
+                            @include('layouts.errors')
+                            {{-- @include('layouts.success') --}}
                             
                             <form action="{{ route('incoming.update', $incoming->id) }}" method="post">
                                 {{ csrf_field() }}
@@ -71,9 +71,27 @@
                                 <label class="label">Nacin Placanja</label>
                                 <div class="select is-small">
                                         <select name="nacin_placanja" id="nacin_placanja">
-                                            <option value="Gotovina">Gotovina</option>
+                                            {{-- <option value="Gotovina">Gotovina</option>
                                             <option value="Virman">Virman</option>
-                                            <option value="Kartica">Kartica</option>
+                                            <option value="Kartica">Kartica</option> --}}
+                                            <option value="Gotovina"
+                                            {{ $value = "Gotovina" }}
+                                            @if($incoming->nacin_placanja == $value)
+                                            selected
+                                            @endif
+                                            >Gotovina</option>
+                                            <option value="Virman"
+                                            {{ $value = "Virman" }}
+                                            @if($incoming->nacin_placanja == $value)
+                                            selected
+                                            @endif
+                                            >Virman</option>
+                                            <option value="Kartica"
+                                            {{ $value = "Kartica" }}
+                                            @if($incoming->nacin_placanja == $value)
+                                            selected
+                                            @endif
+                                            >Kartica</option>
                                         </select>
                                 </div>
                             </div>
@@ -103,9 +121,27 @@
                                 <label class="label">Valuta</label>
                                 <div class="select is-small">
                                         <select name="valuta" id="valuta">
-                                            <option value="RSD">RSD</option>
+                                            {{-- <option value="RSD">RSD</option>
                                             <option value="EUR">EUR</option>
-                                            <option value="USD">USD</option>
+                                            <option value="USD">USD</option> --}}
+                                            <option value="RSD"
+                                            {{ $value = "RSD" }}
+                                            @if($incoming->valuta == $value)
+                                            selected
+                                            @endif
+                                            >RSD</option>
+                                            <option value="EUR"
+                                            {{ $value = "EUR" }}
+                                            @if($incoming->valuta == $value)
+                                            selected
+                                            @endif
+                                            >EUR</option>
+                                            <option value="USD"
+                                            {{ $value = "USD" }}
+                                            @if($incoming->valuta == $value)
+                                            selected
+                                            @endif
+                                            >USD</option>
                                         </select>
                                 </div>
                             </div>
