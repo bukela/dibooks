@@ -48,3 +48,6 @@ Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workboo
 Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
 Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
 
+Route::get('/klijent', 'LiveSearch@index');
+Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+
