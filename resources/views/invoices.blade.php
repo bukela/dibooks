@@ -7,7 +7,7 @@
             <div class="column is-four-fifths">
                     @include('layouts.errors')
                     {{-- @include('layouts.success') --}}
-                    <table class="table is-fullwidth is-bordered">
+                    <table class="table is-fullwidth is-bordered is-striped">
                         <thead>
                           <tr>
                             <th>Klijent</th>
@@ -29,7 +29,7 @@
                     </table>
                     <div class="columns">
                         <div class="column is-2 is-offset-5">
-                            {{ $clients->links() }}
+                            {{ $invoices->links() }}
                         </div>
                     </div>
             </div>

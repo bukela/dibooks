@@ -89,6 +89,10 @@ li.page-item.active {
 span .page-link {
     font-size: 2em;
 }
+
+.search-box {
+    margin: auto;
+}
 /* .table-client {
     width: 30%;
 }
