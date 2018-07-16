@@ -12,8 +12,8 @@
                     </header>
 
                     <div class="card-content">
-                            @include('layouts.errors')
-                            @include('layouts.success')
+                            {{-- @include('layouts.errors')
+                            @include('layouts.success') --}}
                             
                             <form action="{{ route('incoming.update', $incoming->id) }}" method="post">
                                 {{ csrf_field() }}

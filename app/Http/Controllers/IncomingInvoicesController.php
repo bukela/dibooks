@@ -102,7 +102,7 @@ class IncomingInvoicesController extends Controller
         $incoming->valuta = $request->input('valuta');
         $incoming->save();
         
-        Session::flash('success', 'Ulazna Faktura Izmenjena');
+        Session::flash('info', 'Ulazna Faktura Izmenjena');
         return redirect(route('incominginvoices'));
     }
 

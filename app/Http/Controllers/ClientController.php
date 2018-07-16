@@ -85,7 +85,7 @@ class ClientController extends Controller
     public function update(ClientRequest $request, $id)
     {
         Client::findOrFail($id)->update($request->all());
-        Session::flash('success', 'Klijent Izmenjen');
+        Session::flash('info', 'Klijent Izmenjen');
         return redirect(route('clients'));
     }
 

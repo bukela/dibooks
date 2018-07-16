@@ -117,7 +117,7 @@ class WorkbookController extends Controller
         
         $workbook_item->save();
         
-        Session::flash('success', 'Delovodnik Izmenjen');
+        Session::flash('info', 'Delovodnik Izmenjen');
         return redirect(route('workbooks'));
     }
 

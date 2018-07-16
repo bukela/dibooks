@@ -135,7 +135,7 @@ class InvoiceController extends Controller
         
         $invoice_item->save();
         
-        Session::flash('success', 'Faktura Izmenjena');
+        Session::flash('info', 'Faktura Izmenjena');
         return redirect(route('invoices'));
     }
 

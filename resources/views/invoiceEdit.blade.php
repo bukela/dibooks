@@ -13,8 +13,8 @@
                     </header>
 
                     <div class="card-content">
-                            @include('layouts.errors')
-                            @include('layouts.success')
+                            {{-- @include('layouts.errors')
+                            @include('layouts.success') --}}
                             
                             <form action="{{ route('invoice.update' ,$invoice->id) }}" method="post">
                                 {{ csrf_field() }}
@@ -44,9 +44,32 @@
                                 <label class="label">Valuta</label>
                                 <div class="select is-small">
                                         <select name="valuta" id="valuta">
-                                            <option value="RSD">RSD</option>
+                                            {{-- <option value="RSD">RSD</option>
                                             <option value="EUR">EUR</option>
-                                            <option value="USD">USD</option>
+                                            <option value="USD" value="USD"
+                                            {{ $value = "USD" }}
+                                            @if($invoice->valuta == $value)
+                                            selected
+                                            @endif
+                                            >USD</option> --}}
+                                            <option value="RSD"
+                                            {{ $value = "RSD" }}
+                                            @if($invoice->valuta == $value)
+                                            selected
+                                            @endif
+                                            >RSD</option>
+                                            <option value="EUR"
+                                            {{ $value = "EUR" }}
+                                            @if($invoice->valuta == $value)
+                                            selected
+                                            @endif
+                                            >EUR</option>
+                                            <option value="USD"
+                                            {{ $value = "USD" }}
+                                            @if($invoice->valuta == $value)
+                                            selected
+                                            @endif
+                                            >USD</option>
                                         </select>
                                 </div>
                             </div>
