@@ -63,6 +63,18 @@
     padding: 0 2px 0 0;
  }
 
+ .no-data {
+    color: #00D1B2;
+    font-weight: 500;
+    font-size: 20px;
+ }
+
+ .eye-icon {
+    color: #00D1B2 !important;
+    text-decoration: none !important;
+    font-size: 32px !important;
+ }
+
 .table-div {
     margin-top: 10px;
 }

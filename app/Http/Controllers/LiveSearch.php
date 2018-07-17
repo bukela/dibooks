@@ -7,12 +7,12 @@ use DB;
 
 class LiveSearch extends Controller
 {
-    function index()
-    {
-     return view('live_search');
-    }
+    // function index()
+    // {
+    //  return view('clients');
+    // }
 
-    function action(Request $request)
+    function clients(Request $request)
     {
      if($request->ajax())
      {
@@ -30,7 +30,7 @@ class LiveSearch extends Controller
       else
       {
        $data = DB::table('clients')
-         ->orderBy('naziv', 'desc')
+         ->orderBy('naziv', 'asc')
          ->get();
       }
       $total_row = $data->count();
@@ -38,13 +38,15 @@ class LiveSearch extends Controller
       {
        foreach($data as $row)
        {
+        //  $link = "route('client.show',$row->id)";
         $output .= "
         <tr>
          <td>$row->naziv</td>
          <td>$row->adresa</td>
          <td>$row->mesto</td>
-         <td>$row->telefon</td>
+         <td>$row->tekuci_racun</td>
          <td>$row->email</td>
+         <td class='table-text has-text-centered'><a href='klijent/$row->id' class='eye-icon'><i class='fa fa-eye'></i></a></td>
         </tr>
         ";
        }
@@ -53,7 +55,7 @@ class LiveSearch extends Controller
       {
        $output = '
        <tr>
-        <td align="center" colspan="5">No Data Found</td>
+        <td align="center" class="has-text-centered no-data" colspan="6">Nema podataka za datu pretragu</td>
        </tr>
        ';
       }
@@ -65,6 +67,61 @@ class LiveSearch extends Controller
       echo json_encode($data);
      }
     }
+
+    // function workbooks(Request $request)
+    // {
+    //  if($request->ajax())
+    //  {
+    //   $output = '';
+    //   $query = $request->get('query');
+    //   if($query != '')
+    //   {
+    //    $data = DB::table('workbooks')
+    //      ->where('predmet', 'like', '%'.$query.'%')
+    //     //  ->orWhere('posiljalac', 'like', '%'.$query.'%')
+    //     //  ->orWhere('mesto', 'like', '%'.$query.'%')
+    //      ->get();
+         
+    //   }
+    //   else
+    //   {
+    //    $data = DB::table('workbooks')
+    //      ->orderBy('created_at', 'desc')
+    //      ->get();
+    //   }
+    //   $total_row = $data->count();
+    //   if($total_row > 0)
+    //   {
+    //    foreach($data as $row)
+    //    {
+    //     //  $link = "route('client.show',$row->id)";
+    //     $output .= "
+    //     <tr>
+    //      <td>$row->osnovni_broj</td>
+    //      <td>$row->predmet</td>
+    //     <td>$row->posiljalac</td>
+    //      <td>$row->datum_prijema</td>
+    //      <td class='table-text has-text-centered'><a href='delovodnik/$row->id' class='eye-icon'><i class='fa fa-eye'></i></a></td>
+    //     </tr>
+    //     ";
+    //    }
+    //   }
+    //   else
+    //   {
+    //    $output = '
+    //    <tr>
+    //     <td align="center" class="has-text-centered no-data" colspan="6">Nema podataka za datu pretragu</td>
+    //    </tr>
+    //    ';
+    //   }
+    //   $data = array(
+    //    'table_data'  => $output,
+    //    'total_data'  => $total_row
+    //   );
+
+    //   echo json_encode($data);
+    //  }
+    // }
 }
 
 

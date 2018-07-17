@@ -48,6 +48,11 @@ Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workboo
 Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
 Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
 
-Route::get('/klijent', 'LiveSearch@index');
-Route::get('/live_search/action', 'LiveSearch@action')->name('live_search.action');
+// Route::get('/klijent', 'LiveSearch@index');
+// ajax search routes
+Route::get('/live_search/clients', 'LiveSearch@clients')->name('live_search.clients');
+// Route::get('/live_search/workbooks', 'LiveSearch@workbooks')->name('live_search.workbooks');
+
+Route::get('/getworkboooks', 'WorkbookController@getworkbooks');
+Route::get('/searchworkbooks', 'WorkbookController@searchworkbooks');
 

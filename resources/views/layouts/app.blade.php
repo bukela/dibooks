@@ -115,5 +115,6 @@
             });
         </script> --}}
         @include('layouts.toastr');
+        @yield('scripts')
     </body>
 </html>

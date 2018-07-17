@@ -22,11 +22,19 @@ class WorkbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         // $workbooks = Workbook::all();
         $workbooks = Workbook::orderBy('created_at','desc')->paginate(10);
         return view('workbooks', compact('workbooks'));
+        // $query = $request->get('q');
+        // if($query) {
+        //     $workbooks = $query ? Workbook::search($query)->orderBy('created_at','desc')->paginate(10) : Workbook::all();
+        //     return view('workbooks', compact('workbooks'));
+        // } else {
+        //     $workbooks = Workbook::orderBy('created_at','desc')->paginate(10);
+        //     return view('workbooks', compact('workbooks'));
+        // }
     }
 
     /**
@@ -136,5 +144,16 @@ class WorkbookController extends Controller
 
         Session::flash('success', 'Delovodnik Obrisan');
         return redirect(route('workbooks'));
+    }
+
+    public function getworkbooks() {
+        $workbook = Workbook::all();
+        return $workbook->load('workbook_item');
+    }
+
+    public function searchworkbooks() {
+        $query = Input::get('query');
+        $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();
+        return response()->json($workbooks);
     }
 }

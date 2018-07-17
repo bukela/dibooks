@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
         <div class="has-text-centered"><p class="page-title">DELOVODNICI<span class="username">&nbsp;<i class="fa fa-book"></i></span></p></div>
+        {{-- @include('layouts.search') --}}
     <div class="columns is-centered">
             <div class="column is-four-fifths">
                     @include('layouts.errors')
@@ -27,6 +28,7 @@
                                 <td class="table-text has-text-centered"><a href="{{ route('workbook.show',$workbook->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                             </tr>
                             @endforeach
+                            {{-- <workbooks></workbooks> --}}
                         </tbody>
                     </table>
                     <div class="columns">
@@ -37,4 +39,5 @@
             </div>
     </div>
 </div>
+
 @endsection

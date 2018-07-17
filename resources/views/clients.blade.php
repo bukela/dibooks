@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('content')
 <div class="container">
-
+{{-- {{ Request::path() }} --}}
     <div class="has-text-centered">
         <p class="page-title">KLIJENTI<span class="username">&nbsp;<i class="fa fa-user"></i></span></p>
     </div>
@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $clients as $client )
+                    {{-- @foreach( $clients as $client )
                     <tr>
                         <td class="table-client">{{ $client->naziv }}</td>
                         <td class="table-number">{{ $client->adresa }}</td>
@@ -31,7 +31,7 @@
                         <td class="table-text">{{ $client->email }}</td>
                         <td class="table-text has-text-centered"><a href="{{ route('client.show',$client->id) }}"><i class="fa fa-eye edit-ico"></i></a></td>
                     </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
             <div class="columns">
@@ -42,4 +42,32 @@
         </div>
     </div>
 </div>
+@section('scripts')
+<script>
+    $(document).ready(function(){
+    
+     search_data();
+    
+     function search_data(query = '')
+     {
+      $.ajax({
+       url:"{{ route('live_search.clients') }}",
+       method:'GET',
+       data:{query:query},
+       dataType:'json',
+       success:function(data)
+       {
+        $('tbody').html(data.table_data);
+        $('#total_records').text(data.total_data);
+       }
+      })
+     }
+    
+     $(document).on('keyup', '#search', function(){
+      var query = $(this).val();
+      search_data(query);
+     });
+    });
+</script>
+@endsection
 @endsection

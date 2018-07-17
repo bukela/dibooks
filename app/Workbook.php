@@ -11,4 +11,8 @@ class Workbook extends Model
         return $this->hasOne(WorkbookItem::class);
     }
 
+    public function scopeSearch($query, $search) {
+        return $query->where('predmet', 'LIKE', "%$search%");
+    }
+
 }
