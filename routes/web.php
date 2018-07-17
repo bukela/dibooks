@@ -53,6 +53,6 @@ Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workboo
 Route::get('/live_search/clients', 'LiveSearch@clients')->name('live_search.clients');
 // Route::get('/live_search/workbooks', 'LiveSearch@workbooks')->name('live_search.workbooks');
 
-Route::get('/getworkboooks', 'WorkbookController@getworkbooks');
+Route::get('/getworkbooks', 'WorkbookController@getworkbooks');
 Route::get('/searchworkbooks', 'WorkbookController@searchworkbooks');
 

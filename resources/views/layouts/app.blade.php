@@ -114,7 +114,7 @@
                 $( "#datepicker,#datepicker2,#datepicker3" ).datepicker( "option", "dateFormat", 'yy-mm-dd');
             });
         </script> --}}
-        @include('layouts.toastr');
+        @include('layouts.toastr')
         @yield('scripts')
     </body>
 </html>

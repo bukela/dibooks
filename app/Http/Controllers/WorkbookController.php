@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Workbook;
 use App\WorkbookItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests\WorkbookRequest;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\WorkbookEditRequest;
@@ -154,6 +155,6 @@ class WorkbookController extends Controller
     public function searchworkbooks() {
         $query = Input::get('query');
         $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();
-        return response()->json($workbooks);
+        return response()->json($workbooks->load('workbook_item'));
     }
 }
