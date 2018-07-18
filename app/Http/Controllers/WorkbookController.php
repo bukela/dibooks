@@ -149,14 +149,13 @@ class WorkbookController extends Controller
     }
 
     public function getworkbooks() {
-
+        
         $workbook = Workbook::all();
 
         return $workbook->load('workbook_item');
     }
 
     public function searchworkbooks() {
-        
         $query = Input::get('query');
     
         $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();

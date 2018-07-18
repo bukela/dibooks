@@ -41054,7 +41054,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.results = [];
+      this.results = {};
       if (this.query.length > 1) {
         axios.get("/searchworkbooks", { params: { query: this.query } }).then(function (response) {
           _this.results = response.data;

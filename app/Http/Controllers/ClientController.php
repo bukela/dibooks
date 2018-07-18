@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use DB;
 use App\Http\Requests\ClientRequest;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -126,8 +127,10 @@ class ClientController extends Controller
         
         $query = Input::get('query');
     
-        $clients = Client::where('naziv','like','%'.$query.'%')->get();
-        // orWhere('posiljalac','like','%'.$query.'%')
+        // $clients = Client::where('naziv','like','%'.$query.'%')->get();
+        $clients = DB::table('clients')
+         ->where('naziv', 'like', '%'.$query.'%')
+         ->orWhere('mesto', 'like', '%'.$query.'%')->get();
         
         return response()->json($clients);
     }
