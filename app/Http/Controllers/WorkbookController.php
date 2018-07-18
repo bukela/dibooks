@@ -28,7 +28,7 @@ class WorkbookController extends Controller
     {
         // $workbooks = Workbook::all();
         $workbooks = Workbook::orderBy('created_at','desc')->paginate(10);
-        return view('workbooks', compact('workbooks'));
+        return view('workbooks', compact('workbooks'));  
         // $query = $request->get('q');
         // if($query) {
         //     $workbooks = $query ? Workbook::search($query)->orderBy('created_at','desc')->paginate(10) : Workbook::all();
