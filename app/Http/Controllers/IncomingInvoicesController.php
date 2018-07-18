@@ -6,6 +6,7 @@ use App\Client;
 use App\IncomingInvoice;
 use App\IncomingInvoices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\IncomingInvoiceRequest;
 use App\Http\Requests\IncomingInvoiceEditRequest;
@@ -121,5 +122,23 @@ class IncomingInvoicesController extends Controller
 
         Session::flash('success', 'Ulazna Faktura Obrisana');
         return redirect(route('incominginvoices'));
+    }
+
+    public function getincoming() {
+
+        $incoming = IncomingInvoice::all();
+
+        return $incoming->load('client');
+    }
+
+    public function searchincoming() {
+        
+        $query = Input::get('query');
+        // $client = IncomingInvoice::all();
+        $inco = IncomingInvoice::all();
+        $incoming = IncomingInvoice::where('broj_fakture','like','%'.$query.'%')->get();
+        // orWhere('posiljalac','like','%'.$query.'%')
+        
+        return response()->json($incoming->load('client'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Workbook;
 use App\WorkbookItem;
 use Illuminate\Http\Request;
+use DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\WorkbookRequest;
 use Illuminate\Support\Facades\Session;
@@ -148,13 +149,19 @@ class WorkbookController extends Controller
     }
 
     public function getworkbooks() {
+
         $workbook = Workbook::all();
+
         return $workbook->load('workbook_item');
     }
 
     public function searchworkbooks() {
+        
         $query = Input::get('query');
+    
         $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();
+        // orWhere('posiljalac','like','%'.$query.'%')
+        
         return response()->json($workbooks->load('workbook_item'));
     }
 }

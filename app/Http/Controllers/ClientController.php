@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClientRequest;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
@@ -112,6 +113,23 @@ class ClientController extends Controller
 
         Session::flash('success', 'Klijent Obrisan');
         return redirect(route('clients'));
+    }
+
+    public function getclients() {
+
+        $clients = Client::all();
+
+        return $clients;
+    }
+
+    public function searchclients() {
+        
+        $query = Input::get('query');
+    
+        $clients = Client::where('naziv','like','%'.$query.'%')->get();
+        // orWhere('posiljalac','like','%'.$query.'%')
+        
+        return response()->json($clients);
     }
 
 }
