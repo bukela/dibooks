@@ -105,6 +105,10 @@ span .page-link {
 .search-box {
     margin: auto;
 }
+
+.fa-trash-alt {
+    padding: 0;
+}
 /* .table-client {
     width: 30%;
 }

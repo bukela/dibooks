@@ -27,7 +27,7 @@
                                 <td class="table-text">{{ $workbook->workbook_item->podbroj }}</td>
                                 <td class="table-text">{{ $workbook->workbook_item->datum_prijema }}</td>
                                 <td class="table-text">{{ $workbook->workbook_item->datum }}</td>
-                                <td class="table-text has-text-centered"><a href="{{ route('workbook.edit',$workbook->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('workbook.delete',$workbook->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('workbook.edit',$workbook->id) }}"><i class="fa fa-edit edit-ico"></i></a>&nbsp;&nbsp;<a href="{{ route('workbook.delete',$workbook->id)  }}" onclick="return confirm('Brisanje Delovodnika ?')" ><i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -35,4 +35,5 @@
     </div>
     <button class="button print-window"><i class="fa fa-print"></i></button>
 </div>
+
 @endsection

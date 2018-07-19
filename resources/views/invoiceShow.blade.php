@@ -25,7 +25,7 @@
                                 <td class="table-text">{{ $invoice->napomena }}</td>
                                 <td class="table-text">{{ $invoice->valuta }}</td>
                                 <td class="table-text">{{ $invoice->placen_iznos }}</td>
-                                <td class="table-text has-text-centered"><a href="{{ route('invoice.edit', $invoice->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('invoice.delete',$invoice->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('invoice.edit', $invoice->id) }}"><i class="fa fa-edit edit-ico"></i></a>&nbsp;&nbsp;<a href="{{ route('invoice.delete',$invoice->id) }}" onclick="return confirm('Brisanje Fakture ?')"><i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                         
