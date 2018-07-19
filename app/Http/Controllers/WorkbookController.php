@@ -155,12 +155,12 @@ class WorkbookController extends Controller
         return $workbooks;
     }
 
-    public function searchworkbooks() {
-        $query = Input::get('query');
+    // public function searchworkbooks() {
+    //     $query = Input::get('query');
     
-        $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();
-        // orWhere('posiljalac','like','%'.$query.'%')
+    //     $workbooks = Workbook::where('predmet','like','%'.$query.'%')->get();
+    //     // orWhere('posiljalac','like','%'.$query.'%')
         
-        return response()->json($workbooks->load('workbook_item'));
-    }
+    //     return response()->json($workbooks->load('workbook_item'));
+    // }
 }

@@ -154,4 +154,11 @@ class InvoiceController extends Controller
         Session::flash('success', 'Faktura Obrisana');
         return redirect(route('invoices'));
     }
+
+    public function getinvoice() {
+
+        $invoice = Invoice::with('invoice_item')->get();
+
+        return $invoice;
+    }
 }

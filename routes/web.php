@@ -61,6 +61,8 @@ Route::get('/getworkbooks', 'WorkbookController@getworkbooks');
 Route::get('/getincoming', 'IncomingInvoicesController@getincoming');
 // Route::get('/searchincoming', 'IncomingInvoicesController@searchincoming');
 
+Route::get('/getinvoice', 'InvoiceController@getinvoice');
+
 Route::get('/getclients', 'ClientController@getclients');
 // Route::get('/searchclients', 'ClientController@searchclients');
 
