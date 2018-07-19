@@ -110,6 +110,8 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $client = Client::findOrFail($id);
+        $client->invoice()->delete(); //brisanje klijentovih faktura
+        $client->incoming_invoice()->delete(); //brisanje klijentovih faktura
         $client->delete();
 
         Session::flash('success', 'Klijent Obrisan');
