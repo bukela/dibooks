@@ -3,7 +3,7 @@
   <div class="search-box column is-half">
     <div class="searchblock panel-block">
             <p class="searchlist control has-icons-left is-pulled-right">
-                <input class="input is-small is-primary" v-model="query" v-on:keyup="autoComplete" type="search" placeholder="Pretraga">
+                <input class="input is-small is-primary" v-model="autoComplete" type="search" placeholder="Pretraga">
                 <span class="icon is-small is-left">
                 <i class="fa fa-search"></i>
                 </span>
@@ -27,15 +27,15 @@
                           </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="result in results" :key="result.id">
-                                <td class="table-client">{{ result.client.naziv }}</td>
-                                <td class="table-number">{{ result.broj_fakture }}</td>
-                                <td class="table-text">{{ result.redni_broj }}</td>
-                                <td class="table-text">{{ result.datum_prijema }}</td>
-                                <td class="table-text">{{ result.datum_fakture }}</td>
-                                <td class="table-text">{{ result.iznos }}</td>
-                                <td class="table-text">{{ result.valuta }}</td>
-                        <td class="table-text has-text-centered"><a :href="'/ulazna-faktura/' + result.id"><i class="fa fa-eye edit-ico"></i></a></td>
+                        <tr v-for="item in temp" :key="item.id">
+                                <td class="table-client">{{ item.client.naziv }}</td>
+                                <td class="table-number">{{ item.broj_fakture }}</td>
+                                <td class="table-text">{{ item.redni_broj }}</td>
+                                <td class="table-text">{{ item.datum_prijema }}</td>
+                                <td class="table-text">{{ item.datum_fakture }}</td>
+                                <td class="table-text">{{ item.iznos }}</td>
+                                <td class="table-text">{{ item.valuta }}</td>
+                        <td class="table-text has-text-centered"><a :href="'/ulazna-faktura/' + item.id"><i class="fa fa-eye edit-ico"></i></a></td>
                         </tr>
                         </tbody>
                     </table>
@@ -55,25 +55,40 @@ export default {
     return {
       query: "",
       results: [],
-      temp: []
+      temp: [],
+      autoComplete: ''
     };
   },
   mounted() {
     this.getall();
   },
-  methods: {
-    autoComplete() {
-      this.results = [];
-      if (this.query.length > 0) {
-        axios
-          .get("/searchincoming", { params: { query: this.query } })
-          .then(response => {
-            this.results = response.data;
+    watch:{
+			autoComplete(){
+				if (this.autoComplete.length > 0) {
+					this.temp = this.results.filter((item) => {
+						return Object.keys(item).some((key)=>{
+							let string = String(item[key]) 
+							return string.toLowerCase().indexOf(this.autoComplete.toLowerCase())>-1
+            })
           });
-      } else {
-        this.results = this.temp;
-      }
-    },
+				} else {
+					this.temp = this.results
+				}
+			}
+		},
+  methods: {
+    // autoComplete() {
+    //   this.results = [];
+    //   if (this.query.length > 0) {
+    //     axios
+    //       .get("/searchincoming", { params: { query: this.query } })
+    //       .then(response => {
+    //         this.results = response.data;
+    //       });
+    //   } else {
+    //     this.results = this.temp;
+    //   }
+
     getall() {
       axios
         .get("/getincoming")
@@ -81,7 +96,9 @@ export default {
           this.results = this.temp = response.data;
         })
         .catch(error => (this.errors = error.response.data.errors));
-    }
+      }
+    },
+    
   }
-};
+
 </script>

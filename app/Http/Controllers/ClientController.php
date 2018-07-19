@@ -125,16 +125,16 @@ class ClientController extends Controller
         return $clients;
     }
 
-    public function searchclients() {
+    // public function searchclients() {
         
-        $query = Input::get('query');
+    //     $query = Input::get('query');
     
-        // $clients = Client::where('naziv','like','%'.$query.'%')->get();
-        $clients = DB::table('clients')
-         ->where('naziv', 'like', '%'.$query.'%')
-         ->orWhere('mesto', 'like', '%'.$query.'%')->get();
+    //     // $clients = Client::where('naziv','like','%'.$query.'%')->get();
+    //     $clients = DB::table('clients')
+    //      ->where('naziv', 'like', '%'.$query.'%')
+    //      ->orWhere('mesto', 'like', '%'.$query.'%')->get();
         
-        return response()->json($clients);
-    }
+    //     return response()->json($clients);
+    // }
 
 }

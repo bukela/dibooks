@@ -126,19 +126,19 @@ class IncomingInvoicesController extends Controller
 
     public function getincoming() {
 
-        $incoming = IncomingInvoice::all();
+        $incoming = IncomingInvoice::with('client')->get();
 
-        return $incoming->load('client');
+        return $incoming;
     }
 
-    public function searchincoming() {
+    // public function searchincoming() {
         
-        $query = Input::get('query');
-        // $client = IncomingInvoice::all();
-        $inco = IncomingInvoice::all();
-        $incoming = IncomingInvoice::where('broj_fakture','like','%'.$query.'%')->get();
-        // orWhere('posiljalac','like','%'.$query.'%')
+    //     $query = Input::get('query');
+    //     // $client = IncomingInvoice::all();
+    //     $inco = IncomingInvoice::all();
+    //     $incoming = IncomingInvoice::where('broj_fakture','like','%'.$query.'%')->get();
+    //     // orWhere('posiljalac','like','%'.$query.'%')
         
-        return response()->json($incoming->load('client'));
-    }
+    //     return response()->json($incoming->load('client'));
+    // }
 }

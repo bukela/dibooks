@@ -40846,7 +40846,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -40855,9 +40855,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0ca92eac", Component.options)
+    hotAPI.createRecord("data-v-7168fb6a", Component.options)
   } else {
-    hotAPI.reload("data-v-0ca92eac", Component.options)
+    hotAPI.reload("data-v-7168fb6a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -40935,7 +40935,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
   }
 }
 
@@ -40965,7 +40965,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Workbooks.vue"
+Component.options.__file = "resources/assets/js/components/Workbooks.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -40974,9 +40974,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8ccfd75c", Component.options)
+    hotAPI.createRecord("data-v-60461992", Component.options)
   } else {
-    hotAPI.reload("data-v-8ccfd75c", Component.options)
+    hotAPI.reload("data-v-60461992", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41043,26 +41043,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       query: "",
       results: [],
-      temp: []
+      temp: [],
+      autoComplete: ''
     };
   },
   mounted: function mounted() {
     this.getall();
   },
 
-  methods: {
+  watch: {
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.results = [];
-      if (this.query.length > 1) {
-        axios.get("/searchworkbooks", { params: { query: this.query } }).then(function (response) {
-          _this.results = response.data;
+      if (this.autoComplete.length > 0) {
+        this.temp = this.results.filter(function (item) {
+          return Object.keys(item).some(function (key) {
+            var string = String(item[key]);
+            return string.toLowerCase().indexOf(_this.autoComplete.toLowerCase()) > -1;
+          });
+          // return item.workbook_item.posiljalac.toLowerCase().indexOf(this.autoComplete.toLowerCase()) > -1
         });
       } else {
-        this.results = this.temp;
+        this.temp = this.results;
       }
-    },
+    }
+  },
+  methods: {
+    // autoComplete() {
+    //   this.results = [];
+    //   if (this.query.length > 1) {
+    //     axios
+    //       .get("/searchworkbooks", { params: { query: this.query } })
+    //       .then(response => {
+    //         this.results = response.data;
+    //       });
+    //   } else {
+    //     this.results = this.temp;
+    //   }
+    // },
     getall: function getall() {
       var _this2 = this;
 
@@ -41095,20 +41113,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.query,
-                  expression: "query"
+                  value: _vm.autoComplete,
+                  expression: "autoComplete"
                 }
               ],
               staticClass: "input is-small is-primary",
               attrs: { type: "search", placeholder: "Pretraga" },
-              domProps: { value: _vm.query },
+              domProps: { value: _vm.autoComplete },
               on: {
-                keyup: _vm.autoComplete,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.query = $event.target.value
+                  _vm.autoComplete = $event.target.value
                 }
               }
             }),
@@ -41129,26 +41146,26 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.results, function(result) {
-                return _c("tr", { key: result.id }, [
+              _vm._l(_vm.temp, function(item) {
+                return _c("tr", { key: item.id }, [
                   _c("td", { staticClass: "table-client" }, [
-                    _vm._v(_vm._s(result.osnovni_broj))
+                    _vm._v(_vm._s(item.osnovni_broj))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-number" }, [
-                    _vm._v(_vm._s(result.predmet))
+                    _vm._v(_vm._s(item.predmet))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.workbook_item.posiljalac))
+                    _vm._v(_vm._s(item.workbook_item.posiljalac))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.workbook_item.datum_prijema))
+                    _vm._v(_vm._s(item.workbook_item.datum_prijema))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
-                    _c("a", { attrs: { href: "/delovodnik/" + result.id } }, [
+                    _c("a", { attrs: { href: "/delovodnik/" + item.id } }, [
                       _c("i", { staticClass: "fa fa-eye edit-ico" })
                     ])
                   ])
@@ -41204,7 +41221,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8ccfd75c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-60461992", module.exports)
   }
 }
 
@@ -41234,7 +41251,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Incoming.vue"
+Component.options.__file = "resources/assets/js/components/Incoming.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -41243,9 +41260,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f098c8c6", Component.options)
+    hotAPI.createRecord("data-v-7c8fee5d", Component.options)
   } else {
-    hotAPI.reload("data-v-f098c8c6", Component.options)
+    hotAPI.reload("data-v-7c8fee5d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41318,26 +41335,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       query: "",
       results: [],
-      temp: []
+      temp: [],
+      autoComplete: ''
     };
   },
   mounted: function mounted() {
     this.getall();
   },
 
-  methods: {
+  watch: {
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.results = [];
-      if (this.query.length > 0) {
-        axios.get("/searchincoming", { params: { query: this.query } }).then(function (response) {
-          _this.results = response.data;
+      if (this.autoComplete.length > 0) {
+        this.temp = this.results.filter(function (item) {
+          return Object.keys(item).some(function (key) {
+            var string = String(item[key]);
+            return string.toLowerCase().indexOf(_this.autoComplete.toLowerCase()) > -1;
+          });
         });
       } else {
-        this.results = this.temp;
+        this.temp = this.results;
       }
-    },
+    }
+  },
+  methods: {
+    // autoComplete() {
+    //   this.results = [];
+    //   if (this.query.length > 0) {
+    //     axios
+    //       .get("/searchincoming", { params: { query: this.query } })
+    //       .then(response => {
+    //         this.results = response.data;
+    //       });
+    //   } else {
+    //     this.results = this.temp;
+    //   }
+
     getall: function getall() {
       var _this2 = this;
 
@@ -41348,6 +41382,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     }
   }
+
 });
 
 /***/ }),
@@ -41370,20 +41405,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.query,
-                  expression: "query"
+                  value: _vm.autoComplete,
+                  expression: "autoComplete"
                 }
               ],
               staticClass: "input is-small is-primary",
               attrs: { type: "search", placeholder: "Pretraga" },
-              domProps: { value: _vm.query },
+              domProps: { value: _vm.autoComplete },
               on: {
-                keyup: _vm.autoComplete,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.query = $event.target.value
+                  _vm.autoComplete = $event.target.value
                 }
               }
             }),
@@ -41404,42 +41438,40 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.results, function(result) {
-                return _c("tr", { key: result.id }, [
+              _vm._l(_vm.temp, function(item) {
+                return _c("tr", { key: item.id }, [
                   _c("td", { staticClass: "table-client" }, [
-                    _vm._v(_vm._s(result.client.naziv))
+                    _vm._v(_vm._s(item.client.naziv))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-number" }, [
-                    _vm._v(_vm._s(result.broj_fakture))
+                    _vm._v(_vm._s(item.broj_fakture))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.redni_broj))
+                    _vm._v(_vm._s(item.redni_broj))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.datum_prijema))
+                    _vm._v(_vm._s(item.datum_prijema))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.datum_fakture))
+                    _vm._v(_vm._s(item.datum_fakture))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.iznos))
+                    _vm._v(_vm._s(item.iznos))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.valuta))
+                    _vm._v(_vm._s(item.valuta))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
-                    _c(
-                      "a",
-                      { attrs: { href: "/ulazna-faktura/" + result.id } },
-                      [_c("i", { staticClass: "fa fa-eye edit-ico" })]
-                    )
+                    _c("a", { attrs: { href: "/ulazna-faktura/" + item.id } }, [
+                      _c("i", { staticClass: "fa fa-eye edit-ico" })
+                    ])
                   ])
                 ])
               })
@@ -41499,7 +41531,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f098c8c6", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7c8fee5d", module.exports)
   }
 }
 
@@ -41529,7 +41561,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Clients.vue"
+Component.options.__file = "resources/assets/js/components/Clients.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -41538,9 +41570,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0f0908e1", Component.options)
+    hotAPI.createRecord("data-v-37f75e21", Component.options)
   } else {
-    hotAPI.reload("data-v-0f0908e1", Component.options)
+    hotAPI.reload("data-v-37f75e21", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41609,26 +41641,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       query: "",
       results: [],
-      temp: []
+      temp: [],
+      autoComplete: ''
     };
   },
   mounted: function mounted() {
     this.getall();
   },
 
-  methods: {
+  watch: {
     autoComplete: function autoComplete() {
       var _this = this;
 
-      this.results = [];
-      if (this.query.length > 0) {
-        axios.get("/searchclients", { params: { query: this.query } }).then(function (response) {
-          _this.results = response.data;
+      if (this.autoComplete.length > 0) {
+        this.temp = this.results.filter(function (item) {
+          return Object.keys(item).some(function (key) {
+            var string = String(item[key]);
+            return string.toLowerCase().indexOf(_this.autoComplete.toLowerCase()) > -1;
+          });
         });
       } else {
-        this.results = this.temp;
+        this.temp = this.results;
       }
-    },
+    }
+  },
+  methods: {
     getall: function getall() {
       var _this2 = this;
 
@@ -41661,20 +41698,19 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.query,
-                  expression: "query"
+                  value: _vm.autoComplete,
+                  expression: "autoComplete"
                 }
               ],
               staticClass: "input is-small is-primary",
               attrs: { type: "search", placeholder: "Pretraga" },
-              domProps: { value: _vm.query },
+              domProps: { value: _vm.autoComplete },
               on: {
-                keyup: _vm.autoComplete,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.query = $event.target.value
+                  _vm.autoComplete = $event.target.value
                 }
               }
             }),
@@ -41695,30 +41731,30 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.results, function(result) {
-                return _c("tr", { key: result.id }, [
+              _vm._l(_vm.temp, function(item) {
+                return _c("tr", { key: item.id }, [
                   _c("td", { staticClass: "table-client" }, [
-                    _vm._v(_vm._s(result.naziv))
+                    _vm._v(_vm._s(item.naziv))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-number" }, [
-                    _vm._v(_vm._s(result.adresa))
+                    _vm._v(_vm._s(item.adresa))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.mesto))
+                    _vm._v(_vm._s(item.mesto))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.tekuci_racun))
+                    _vm._v(_vm._s(item.tekuci_racun))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(result.email))
+                    _vm._v(_vm._s(item.email))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
-                    _c("a", { attrs: { href: "/klijent/" + result.id } }, [
+                    _c("a", { attrs: { href: "/klijent/" + item.id } }, [
                       _c("i", { staticClass: "fa fa-eye edit-ico" })
                     ])
                   ])
@@ -41776,7 +41812,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0f0908e1", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-37f75e21", module.exports)
   }
 }
 

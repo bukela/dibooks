@@ -1,2 +1,9 @@
 
 <td class="table-text has-text-centered"><a href="{{ route('incoming.edit',$incoming->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('incoming.delete',$incoming->id)  }}"><i class="fa fa-trash-alt trash"></i></a></td>
+
+
+if (this.autoComplete.length > 0) {
+    this.temp = this.results.filter((item) => {
+        return item.name.toLowerCase()indexOf(this.autoComplete.toLowerCase()) > -1
+    });
+}

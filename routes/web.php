@@ -1,6 +1,5 @@
 <?php
 
-use App\IncomingInvoice;
 
 
 /*
@@ -57,19 +56,20 @@ Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workboo
 // Route::get('/live_search/workbooks', 'LiveSearch@workbooks')->name('live_search.workbooks');
 
 Route::get('/getworkbooks', 'WorkbookController@getworkbooks');
-Route::get('/searchworkbooks', 'WorkbookController@searchworkbooks');
+// Route::get('/searchworkbooks', 'WorkbookController@searchworkbooks');
 
 Route::get('/getincoming', 'IncomingInvoicesController@getincoming');
-Route::get('/searchincoming', 'IncomingInvoicesController@searchincoming');
+// Route::get('/searchincoming', 'IncomingInvoicesController@searchincoming');
 
 Route::get('/getclients', 'ClientController@getclients');
-Route::get('/searchclients', 'ClientController@searchclients');
+// Route::get('/searchclients', 'ClientController@searchclients');
 
 Route::get('/test', function() {
-    $inco = IncomingInvoice::all();
-    $ara = [];
-    foreach($inco as $in) {
-        array_push($ara, $in->client->naziv);
-    }
-    print_r($ara);
+    // $inco = IncomingInvoice::all();
+    // $ara = [];
+    // foreach($inco as $in) {
+    //     array_push($ara, $in->client->naziv);
+    // }
+    // $workbooks = Workbook::find(5)->load('workbook_item');
+    // print_r($workbooks);
 });

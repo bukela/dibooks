@@ -150,9 +150,9 @@ class WorkbookController extends Controller
 
     public function getworkbooks() {
         
-        $workbook = Workbook::all();
+        $workbooks = Workbook::with('workbook_item')->get();
 
-        return $workbook->load('workbook_item');
+        return $workbooks;
     }
 
     public function searchworkbooks() {
