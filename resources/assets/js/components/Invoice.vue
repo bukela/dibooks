@@ -18,6 +18,7 @@
                           <tr>
                             <th>Klijent</th>
                             <th>Broj Fakture</th>
+                            <th>Opis</th>
                             <th>Napomena</th>
                             <th>Valuta</th>
                             <th>Pregled</th>
@@ -25,8 +26,9 @@
                         </thead>
                         <tbody>
                         <tr v-for="item in temp" :key="item.id">
-                                <td class="table-client">{{ item.client_id }}</td>
+                                <td class="table-client">{{ item.client.naziv }}</td>
                                 <td class="table-number">{{ item.broj_fakture }}</td>
+                                <td class="table-text">{{ item.invoice_item.opis }}</td>
                                 <td class="table-text">{{ item.napomena }}</td>
                                 <td class="table-text">{{ item.valuta }}</td>
                         <td class="table-text has-text-centered"><a :href="'/faktura/' + item.id"><i class="fa fa-eye edit-ico"></i></a></td>

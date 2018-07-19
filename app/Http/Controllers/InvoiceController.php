@@ -157,7 +157,7 @@ class InvoiceController extends Controller
 
     public function getinvoice() {
 
-        $invoice = Invoice::with('invoice_item')->get();
+        $invoice = Invoice::with('invoice_item','client')->get();
 
         return $invoice;
     }

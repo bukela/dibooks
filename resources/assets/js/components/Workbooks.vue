@@ -61,10 +61,12 @@ export default {
 				if (this.autoComplete.length > 0) {
 					this.temp = this.results.filter((item) => {
 						return Object.keys(item).some((key)=>{
-							let string = String(item[key]) 
+              let string = String(item[key])
+              // console.log(string) 
 							return string.toLowerCase().indexOf(this.autoComplete.toLowerCase())>-1
             })
             // return item.workbook_item.posiljalac.toLowerCase().indexOf(this.autoComplete.toLowerCase()) > -1
+            
           });
 				} else {
 					this.temp = this.results

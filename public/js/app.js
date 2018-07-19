@@ -41060,6 +41060,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.temp = this.results.filter(function (item) {
           return Object.keys(item).some(function (key) {
             var string = String(item[key]);
+            // console.log(string) 
             return string.toLowerCase().indexOf(_this.autoComplete.toLowerCase()) > -1;
           });
           // return item.workbook_item.posiljalac.toLowerCase().indexOf(this.autoComplete.toLowerCase()) > -1
@@ -41915,6 +41916,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -42015,11 +42018,15 @@ var render = function() {
               _vm._l(_vm.temp, function(item) {
                 return _c("tr", { key: item.id }, [
                   _c("td", { staticClass: "table-client" }, [
-                    _vm._v(_vm._s(item.client_id))
+                    _vm._v(_vm._s(item.client.naziv))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-number" }, [
                     _vm._v(_vm._s(item.broj_fakture))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "table-text" }, [
+                    _vm._v(_vm._s(item.invoice_item.opis))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
@@ -42064,6 +42071,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Klijent")]),
         _vm._v(" "),
         _c("th", [_vm._v("Broj Fakture")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opis")]),
         _vm._v(" "),
         _c("th", [_vm._v("Napomena")]),
         _vm._v(" "),

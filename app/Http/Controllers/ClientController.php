@@ -27,14 +27,7 @@ class ClientController extends Controller
         // $clients = Client::all();
         // $clients = Client::orderBy('created_at', 'desc')->paginate(10);
         // return view('clients', compact('clients'));
-        $query = $request->get('q');
-        if($query) {
-            $clients = $query ? Client::search($query)->orderBy('created_at','desc')->paginate(10) : Client::all();
-            return view('clients', compact('clients'));
-        } else {
-            $clients = Client::orderBy('created_at','desc')->paginate(10);
-            return view('clients', compact('clients'));
-        }
+            return view('clients');
     }
 
     /**

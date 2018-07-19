@@ -25,8 +25,8 @@ class IncomingInvoicesController extends Controller
     public function index()
     {
         // $incoinvoices = IncomingInvoice::all();
-        $incoinvoices = IncomingInvoice::orderBy('created_at','desc')->paginate(10);
-        return view('incominginvoices', compact('incoinvoices'));
+        // $incoinvoices = IncomingInvoice::orderBy('created_at','desc')->paginate(10);
+        return view('incominginvoices');
     }
 
     /**
