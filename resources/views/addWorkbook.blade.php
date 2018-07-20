@@ -34,7 +34,7 @@
                         {{-- workbook items --}}
                         <div class="field is-grouped podbroj">
                             <div class="field">
-                                <label class="label">Podbroj</label>
+                                <label class="label"><span class="username">1&nbsp;</span>Podbroj</label>
                                 <div class="control">
                                     <input class="input" name="podbroj" type="text" placeholder="Podbroj"></input>
                                 </div>
@@ -71,7 +71,7 @@
                         {{-- podbroj 2 --}}
                         <div class="field is-grouped podbroj">
                             <div class="field">
-                                <label class="label">Podbroj</label>
+                                <label class="label"><span class="username">2&nbsp;</span>Podbroj</label>
                                 <div class="control">
                                     <input class="input" name="podbroj_2" type="text" placeholder="Podbroj"></input>
                                 </div>
@@ -108,7 +108,7 @@
                         {{-- podbroj 3 --}}
                         <div class="field is-grouped podbroj">
                             <div class="field">
-                                <label class="label">Podbroj</label>
+                                <label class="label"><span class="username">3&nbsp;</span>Podbroj</label>
                                 <div class="control">
                                     <input class="input" name="podbroj_3" type="text" placeholder="Podbroj"></input>
                                 </div>

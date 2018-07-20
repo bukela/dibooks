@@ -17,7 +17,7 @@ class CreateWorkbookItemsTable extends Migration
             $table->increments('id');
             $table->integer('workbook_id')->unsigned();
             $table->foreign('workbook_id')->references('id')->on('workbooks')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('broj');
+            $table->string('broj')->nullable();
             $table->string('posiljalac')->nullable();
             $table->integer('podbroj')->nullable();
             $table->date('datum_prijema')->nullable();

@@ -113,6 +113,11 @@ span .page-link {
 .podbroj {
     justify-content: space-between !important;
 }
+
+.workbook-show {
+    border-top: 3px solid #00D1B2; 
+}
+
 /* .table-client {
     width: 30%;
 }

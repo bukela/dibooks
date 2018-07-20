@@ -16,19 +16,19 @@
                     <table class="table is-fullwidth is-bordered is-striped">
                         <thead>
                           <tr>
+                            <th>Delovodnik ID</th>
                             <th>Osnovni Broj</th>
                             <th>Predmet</th>
-                            <th>Posiljalac</th>
-                            <th>Datum Prijema</th>
+                            <th>Datum Kreiranja</th>
                             <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
                         <tr v-for="item in temp" :key="item.id">
+                                <td class="table-text">{{ item.id }}</td>
                                 <td class="table-client">{{ item.osnovni_broj }}</td>
                                 <td class="table-number">{{ item.predmet }}</td>
-                                <td class="table-text">{{ item.workbook_item.posiljalac }}</td>
-                                <td class="table-text">{{ item.workbook_item.datum_prijema }}</td>
+                                <td class="table-text">{{ item.created_at }}</td>
                         <td class="table-text has-text-centered"><a :href="'/delovodnik/' + item.id"><i class="fa fa-eye edit-ico"></i></a></td>
                         </tr>
                         </tbody>

@@ -59,12 +59,15 @@ class WorkbookController extends Controller
     public function store(WorkbookRequest $request)
     {
         $workbook = new Workbook;
-        $workbook_item = new WorkbookItem;
 
         $workbook->osnovni_broj = $request->osnovni_broj;
         $workbook->predmet = $request->predmet;
 
         $workbook->save();
+
+        if ($request->broj != null) {
+
+        $workbook_item = new WorkbookItem;
 
         $workbook_item->workbook_id = Workbook::latest()->first()->id;
         $workbook_item->broj = $request->broj;
@@ -74,17 +77,37 @@ class WorkbookController extends Controller
         $workbook_item->datum = $request->datum;
 
         $workbook_item->save();
+        }
+        
 
-        $workbook_item_2 = new WorkbookItem;
+        if ($request->broj_2 != null) {
 
-        $workbook_item_2->workbook_id = Workbook::latest()->first()->id;
-        $workbook_item_2->broj = $request->broj_2;
-        $workbook_item_2->posiljalac = $request->posiljalac_2;
-        $workbook_item_2->podbroj = $request->podbroj_2;
-        $workbook_item_2->datum_prijema = $request->datum_prijema_2;
-        $workbook_item_2->datum = $request->datum_2;
+            $workbook_item_2 = new WorkbookItem;
 
-        $workbook_item_2->save();
+            $workbook_item_2->workbook_id = Workbook::latest()->first()->id;
+            $workbook_item_2->broj = $request->broj_2;
+            $workbook_item_2->posiljalac = $request->posiljalac_2;
+            $workbook_item_2->podbroj = $request->podbroj_2;
+            $workbook_item_2->datum_prijema = $request->datum_prijema_2;
+            $workbook_item_2->datum = $request->datum_2;
+    
+            $workbook_item_2->save();
+        }
+
+        if ($request->broj_3 != null) {
+            
+            $workbook_item_3 = new WorkbookItem;
+
+            $workbook_item_3->workbook_id = Workbook::latest()->first()->id;
+            $workbook_item_3->broj = $request->broj_3;
+            $workbook_item_3->posiljalac = $request->posiljalac_3;
+            $workbook_item_3->podbroj = $request->podbroj_3;
+            $workbook_item_3->datum_prijema = $request->datum_prijema_3;
+            $workbook_item_3->datum = $request->datum_3;
+    
+            $workbook_item_3->save();
+        }
+       
 
         Session::flash('success', 'Delovodnik kreiran');
         

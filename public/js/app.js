@@ -41150,6 +41150,10 @@ var render = function() {
               "tbody",
               _vm._l(_vm.temp, function(item) {
                 return _c("tr", { key: item.id }, [
+                  _c("td", { staticClass: "table-text" }, [
+                    _vm._v(_vm._s(item.id))
+                  ]),
+                  _vm._v(" "),
                   _c("td", { staticClass: "table-client" }, [
                     _vm._v(_vm._s(item.osnovni_broj))
                   ]),
@@ -41159,11 +41163,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(item.workbook_item.posiljalac))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(item.workbook_item.datum_prijema))
+                    _vm._v(_vm._s(item.created_at))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
@@ -41197,13 +41197,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", [_vm._v("Delovodnik ID")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Osnovni Broj")]),
         _vm._v(" "),
         _c("th", [_vm._v("Predmet")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Posiljalac")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Datum Prijema")]),
+        _c("th", [_vm._v("Datum Kreiranja")]),
         _vm._v(" "),
         _c("th", [_vm._v("Pregled")])
       ])

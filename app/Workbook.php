@@ -12,7 +12,14 @@ class Workbook extends Model
     }
 
     public function scopeSearch($query, $search) {
+        
         return $query->where('predmet', 'LIKE', "%$search%");
+    }
+
+    public function getCreatedAtAttribute($value) {
+
+        return date("d-m-Y", strtotime($value));
+        
     }
 
 }
