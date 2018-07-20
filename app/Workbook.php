@@ -8,7 +8,7 @@ class Workbook extends Model
 {
     public function workbook_item() {
 
-        return $this->hasOne(WorkbookItem::class);
+        return $this->hasMany(WorkbookItem::class);
     }
 
     public function scopeSearch($query, $search) {

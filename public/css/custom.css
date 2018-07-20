@@ -109,6 +109,10 @@ span .page-link {
 .fa-trash-alt {
     padding: 0;
 }
+
+.podbroj {
+    justify-content: space-between !important;
+}
 /* .table-client {
     width: 30%;
 }
