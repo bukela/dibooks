@@ -31,7 +31,8 @@
                                         <textarea class="textarea" name="predmet" type="text" placeholder="Predmet">{{ $workbook->predmet }}</textarea>
                                 </div>
                             </div>
-
+                            {{-- {{ $wcount = $workbook->workbook_item->count() }} --}}
+                            
                             {{-- workbook items --}}
                             @foreach($workbook->workbook_item as $workbook)
                             
@@ -72,6 +73,9 @@
                                 </div>
                             </div>
                             @endforeach
+                            {{-- @if ($wcount == 1)
+                                @include('layouts.workbookEditForm')
+                            @endif --}}
                             
                             <div class="field">
                                 <div class="control has-text-centered">

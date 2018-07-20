@@ -196,6 +196,7 @@ class WorkbookController extends Controller
         
         
         Session::flash('info', 'Delovodnik Izmenjen');
+        // return redirect(route('workbooks'));
         return redirect(route('workbooks'));
     }
 
