@@ -148,20 +148,52 @@ class WorkbookController extends Controller
     public function update(WorkbookEditRequest $request, $id)
     {
         $workbook = Workbook::findOrFail($id);
-        $workbook_item = WorkbookItem::where('workbook_id', $id)->first();
+        
 
         $workbook->osnovni_broj = $request->osnovni_broj;
         $workbook->predmet = $request->predmet;
 
         $workbook->save();
 
-        $workbook_item->broj = $request->broj;
-        $workbook_item->posiljalac = $request->posiljalac;
-        $workbook_item->podbroj = $request->podbroj;
-        $workbook_item->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema')));
-        $workbook_item->datum = date("Y-m-d", strtotime($request->input('datum')));
+        if ($request->broj_1 != null) {
+
+            $workbook_item_1 = WorkbookItem::where('workbook_id', $id)->first();
+            $workbook_item_1->broj = $request->broj_1;
+            $workbook_item_1->posiljalac = $request->posiljalac_1;
+            $workbook_item_1->podbroj = $request->podbroj_1;
+            $workbook_item_1->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema_1')));
+            $workbook_item_1->datum = date("Y-m-d", strtotime($request->input('datum_1')));
+            
+            $workbook_item_1->save();
+
+        }
+
+        if ($request->broj_2 != null) {
+
+            $workbook_item_2 = WorkbookItem::where('workbook_id', $id)->skip(1)->first();
+            $workbook_item_2->broj = $request->broj_2;
+            $workbook_item_2->posiljalac = $request->posiljalac_2;
+            $workbook_item_2->podbroj = $request->podbroj_2;
+            $workbook_item_2->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema_2')));
+            $workbook_item_2->datum = date("Y-m-d", strtotime($request->input('datum_2')));
+            
+            $workbook_item_2->save();
+
+        }
+
+        if ($request->broj_3 != null) {
+
+            $workbook_item_3 = WorkbookItem::where('workbook_id', $id)->skip(2)->first();
+            $workbook_item_3->broj = $request->broj_3;
+            $workbook_item_3->posiljalac = $request->posiljalac_3;
+            $workbook_item_3->podbroj = $request->podbroj_3;
+            $workbook_item_3->datum_prijema = date("Y-m-d", strtotime($request->input('datum_prijema_3')));
+            $workbook_item_3->datum = date("Y-m-d", strtotime($request->input('datum_3')));
+            
+            $workbook_item_3->save();
+
+        }
         
-        $workbook_item->save();
         
         Session::flash('info', 'Delovodnik Izmenjen');
         return redirect(route('workbooks'));

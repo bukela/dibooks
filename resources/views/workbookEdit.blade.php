@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
         <div class="columns is-marginless is-centered">
-            <div class="column is-7">
+            <div class="column is-12">
                 <nav class="card">
                     <header class="card-header">
                         <p class="card-header-title">
@@ -33,40 +33,45 @@
                             </div>
 
                             {{-- workbook items --}}
-                            <div class="field">
-                                <label class="label">Broj</label>
-                                <div class="control">
-                                    <input class="input" name="broj" value="{{ $workbook->workbook_item->broj }}" type="text" placeholder="Broj">
+                            @foreach($workbook->workbook_item as $workbook)
+                            
+                            <div class="field is-grouped podbroj">
+                                <div class="field">
+                                    <label class="label">Broj</label>
+                                    <div class="control">
+                                        <input class="input" name="broj_{{$loop->iteration}}" value="{{ $workbook->broj }}" type="text" placeholder="Broj">
+                                    </div>
+                                </div>
+    
+                                <div class="field">
+                                    <label class="label">Posiljalac</label>
+                                    <div class="control">
+                                        <input class="input" name="posiljalac_{{$loop->iteration}}" value="{{ $workbook->posiljalac }}" type="text" placeholder="Posiljalac">
+                                    </div>
+                                </div>
+    
+                                <div class="field">
+                                    <label class="label">Podbroj</label>
+                                    <div class="control">
+                                        <input class="input" name="podbroj_{{$loop->iteration}}" type="text" value="{{ $workbook->podbroj }}" placeholder="Podbroj"></input>
+                                    </div>
+                                </div>
+    
+                                <div class="field">
+                                    <label class="label">Datum Prijema <i class="fa fa-calendar-alt"></i></label>
+                                    <div class="control">
+                                        <input class="input input-date" name="datum_prijema_{{$loop->iteration}}" type="date-local" value="{{ $workbook->datum_prijema }}" placeholder="Datum Prijema"></input>
+                                    </div>
+                                </div>
+    
+                                <div class="field">
+                                    <label class="label">Datum <i class="fa fa-calendar-alt"></i></label>
+                                    <div class="control">
+                                        <input class="input input-date" name="datum_{{$loop->iteration}}" type="date-local" value="{{ $workbook->datum }}" placeholder="Datum"></input>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="field">
-                                <label class="label">Posiljalac</label>
-                                <div class="control">
-                                    <input class="input" name="posiljalac" value="{{ $workbook->workbook_item->posiljalac }}" type="text" placeholder="Posiljalac">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Podbroj</label>
-                                <div class="control">
-                                    <input class="input" name="podbroj" type="text" value="{{ $workbook->workbook_item->podbroj }}" placeholder="Podbroj"></input>
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Datum Prijema <i class="fa fa-calendar-alt"></i></label>
-                                <div class="control">
-                                    <input class="input input-date" name="datum_prijema" type="date-local" value="{{ $workbook->workbook_item->datum_prijema }}" placeholder="Datum Prijema"></input>
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Datum <i class="fa fa-calendar-alt"></i></label>
-                                <div class="control">
-                                    <input class="input input-date" name="datum" type="date-local" value="{{ $workbook->workbook_item->datum }}" placeholder="Datum"></input>
-                                </div>
-                            </div>
+                            @endforeach
                             
                             <div class="field">
                                 <div class="control has-text-centered">
