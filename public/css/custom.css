@@ -3,6 +3,17 @@
     color: #00D1B2;
 }
 
+.witem {
+    font-weight: 600;
+    font-size: 24px;
+    color: #00D1B2;
+    text-decoration: none;
+}
+
+.witem:hover {
+    color: rgb(1, 179, 152);
+}
+
 .success-holder {
     background: rgb(0, 209, 178, 0.1);
     border-radius: 3%;
@@ -116,6 +127,10 @@ span .page-link {
 
 .workbook-show {
     border-top: 3px solid #00D1B2; 
+}
+
+.hide-me {
+    display: none;
 }
 
 /* .table-client {

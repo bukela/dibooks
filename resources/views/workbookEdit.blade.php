@@ -15,8 +15,13 @@
                             @include('layouts.errors')
                             {{-- @include('layouts.success') --}}
                             
-                            <form action="{{ route('workbook.update', $workbook->id) }}" method="post">
+                            <form action="{{ route('workbook.update', $workbook->id) }}" method="POST">
+                                {{-- <input name="_method" type="hidden" value="PUT">
+                                 --}}
+                                 {{-- {{ method_field('PUT') }} --}}
                                 {{ csrf_field() }}
+                                {{-- @method('PUT')
+                                @csrf --}}
 
                             <div class="field">
                                 <label class="label">Osnovni Broj</label>
@@ -31,7 +36,7 @@
                                         <textarea class="textarea" name="predmet" type="text" placeholder="Predmet">{{ $workbook->predmet }}</textarea>
                                 </div>
                             </div>
-                            {{-- {{ $wcount = $workbook->workbook_item->count() }} --}}
+                            <div class="hide-me">{{ $wcount = $workbook->workbook_item->count() }}</div>
                             
                             {{-- workbook items --}}
                             @foreach($workbook->workbook_item as $workbook)
@@ -91,7 +96,7 @@
                                 </div>
                             </div>
                         </form>
-                            
+                    <span class="username"><a href="{{ route('workbook_item.create',['id' => $workbook->id]) }}" class="witem"><i class="fa fa-plus"></i>&nbsp;Dodaj Item</a></span>
                     </div>
                 </nav>
             </div>

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Workbook;
 use App\WorkbookItem;
-use App\Workbook_item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -31,7 +31,7 @@ class WorkbookItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('addWorkbookItem');
     }
 
     /**
@@ -42,7 +42,20 @@ class WorkbookItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $workbook_item = new WorkbookItem;
+
+        $workbook_item->workbook_id = $request->id;
+        $workbook_item->broj = $request->broj;
+        $workbook_item->posiljalac = $request->posiljalac;
+        $workbook_item->podbroj = $request->podbroj;
+        $workbook_item->datum_prijema = $request->datum_prijema;
+        $workbook_item->datum = $request->datum;
+        // dd($workbook_item);
+        $workbook_item->save();
+
+        Session::flash('success', 'Item kreiran');
+        
+        return redirect()->back();
     }
 
     /**
@@ -91,6 +104,6 @@ class WorkbookItemController extends Controller
         $workbook_item->delete();
 
         Session::flash('success', 'Item Obrisan');
-        return redirect()->back();
+        return redirect(route('workbooks'));
     }
 }

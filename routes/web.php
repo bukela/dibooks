@@ -50,6 +50,8 @@ Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.st
 Route::get('/delovodnik/{id}', 'WorkbookController@show')->name('workbook.show');
 Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workbook.delete');
 Route::get('/workbook-item/delete/{id}', 'WorkbookItemController@destroy')->name('workbook_item.delete');
+Route::get('/delovodnik-item/kreiraj', 'WorkbookItemController@create')->name('workbook_item.create');
+Route::post('/workbook-item/store', 'WorkbookItemController@store')->name('workbook_item.store');
 Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
 Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
 
