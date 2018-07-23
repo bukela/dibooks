@@ -53,7 +53,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="field">
                             <div class="control has-text-centered">
                                 <button class="button is-primary is-outlined" type="submit">Submit</button>

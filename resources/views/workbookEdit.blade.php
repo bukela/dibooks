@@ -10,12 +10,12 @@
                             <span class="username">IZMENI DELOVODNIK&nbsp;&nbsp;<i class="fa fa-book"></i></span>
                         </p>
                     </header>
-
+{{$workbooks->id}}
                     <div class="card-content">
                             @include('layouts.errors')
                             {{-- @include('layouts.success') --}}
                             
-                            <form action="{{ route('workbook.update', $workbook->id) }}" method="POST">
+                            <form action="{{ route('workbook.update', $workbooks->id) }}" method="POST">
                                 {{-- <input name="_method" type="hidden" value="PUT">
                                  --}}
                                  {{-- {{ method_field('PUT') }} --}}
@@ -26,20 +26,20 @@
                             <div class="field">
                                 <label class="label">Osnovni Broj</label>
                                 <div class="control">
-                                    <input class="input" name="osnovni_broj" value="{{ $workbook->osnovni_broj }}" type="text" placeholder="Osnovni Broj">
+                                    <input class="input" name="osnovni_broj" value="{{ $workbooks->osnovni_broj }}" type="text" placeholder="Osnovni Broj">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Predmet</label>
                                 <div class="control">
-                                        <textarea class="textarea" name="predmet" type="text" placeholder="Predmet">{{ $workbook->predmet }}</textarea>
+                                        <textarea class="textarea" name="predmet" type="text" placeholder="Predmet">{{ $workbooks->predmet }}</textarea>
                                 </div>
                             </div>
-                            <div class="hide-me">{{ $wcount = $workbook->workbook_item->count() }}</div>
+                            {{-- <div class="hide-me">{{ $wcount = $workbook->workbook_item->count() }}</div> --}}
                             
                             {{-- workbook items --}}
-                            @foreach($workbook->workbook_item as $workbook)
+                            @foreach($workbooks->workbook_item as $workbook)
                             
                             <div class="field is-grouped podbroj">
                                 <div class="field">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                         </form>
-                    <span class="username"><a href="{{ route('workbook_item.create',['id' => $workbook->id]) }}" class="witem"><i class="fa fa-plus"></i>&nbsp;Dodaj Item</a></span>
+                    <span class="username"><a href="{{ route('workbook_item.create',$workbooks->id) }}" class="witem"><i class="fa fa-plus"></i>&nbsp;Dodaj Item</a></span>
                     </div>
                 </nav>
             </div>

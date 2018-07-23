@@ -134,8 +134,8 @@ class WorkbookController extends Controller
      */
     public function edit($id)
     {   
-        $workbook = Workbook::findOrFail($id);
-        return view('workbookEdit', compact('workbook'));
+        $workbooks = Workbook::findOrFail($id);
+        return view('workbookEdit', compact('workbooks'));
     }
 
     /**
