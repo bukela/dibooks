@@ -72,17 +72,6 @@ Route::get('/getclients', 'ClientController@getclients');
 // Route::get('/searchclients', 'ClientController@searchclients');
 
 Route::get('/test', function() {
-    // $inco = IncomingInvoice::all();
-    // $ara = [];
-    // foreach($inco as $in) {
-    //     array_push($ara, $in->client->naziv);
-    // }
-    // $workbooks = Workbook::find(5)->load('workbook_item');
-    // print_r($workbooks);
-    // $invoice = Invoice::with('invoice_item','client')->get()->map(function ($item) {
-    //     return collect($item)->values();
-    // });
-
         // $invoice_flat = $invoice->flatten();
 
         // $invoice_flat->all();
