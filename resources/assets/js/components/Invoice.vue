@@ -21,16 +21,18 @@
                             <th>Opis</th>
                             <th>Napomena</th>
                             <th>Valuta</th>
+                            <th>Jedinica Mere</th>
                             <th>Pregled</th>
                           </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="item in temp" :key="item.id">
-                                <td class="table-client">{{ item.client.naziv }}</td>
+                        <tr v-for="item in temp">
+                                <td class="table-client">{{ item.naziv }}</td>
                                 <td class="table-number">{{ item.broj_fakture }}</td>
-                                <td class="table-text">{{ item.invoice_item.opis }}</td>
+                                <td class="table-text">{{ item.opis }}</td>
                                 <td class="table-text">{{ item.napomena }}</td>
                                 <td class="table-text">{{ item.valuta }}</td>
+                                <td class="table-text">{{ item.jedinica_mere }}</td>
                         <td class="table-text has-text-centered"><a :href="'/faktura/' + item.id"><i class="fa fa-eye edit-ico"></i></a></td>
                         </tr>
                         </tbody>
@@ -52,7 +54,7 @@ export default {
       query: "",
       results: [],
       temp: [],
-      autoComplete: ''
+      autoComplete: '',
     };
   },
   mounted() {
@@ -80,7 +82,7 @@ export default {
           this.results = this.temp = response.data;
         })
         .catch(error => (this.errors = error.response.data.errors));
-      }
+      },
     },
     
   }

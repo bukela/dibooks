@@ -71,6 +71,14 @@
                                         <input class="input input-date" name="datum_{{$loop->iteration}}" type="date-local" value="{{ $workbook->datum }}" placeholder="Datum"></input>
                                     </div>
                                 </div>
+
+                                <div class="field">
+                                    <label class="label">Datum <i class="fa fa-calendar-alt"></i></label>
+                                    <div class="control">
+                                        <input class="input input-date" name="datum_{{$loop->iteration}}" type="date-local" value="{{ $workbook->datum }}" placeholder="Datum"></input>
+                                    </div>
+                                </div>
+                            <div class="field"><a href="{{ route('workbook_item.delete',$workbook->id) }}" onclick="return confirm('Brisanje ?')" ><i class="fa fa-trash-alt trash"></i></a></div>
                             </div>
                             @endforeach
                             {{-- @if ($wcount == 1)

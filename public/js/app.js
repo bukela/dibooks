@@ -41149,9 +41149,9 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.temp, function(item) {
-                return _c("tr", { key: item.id }, [
+                return _c("tr", [
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(item.id))
+                    _vm._v(_vm._s(item.broj))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-client" }, [
@@ -41163,7 +41163,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(item.created_at))
+                    _vm._v(_vm._s(item.posiljalac))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
@@ -41197,13 +41197,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Delovodnik ID")]),
+        _c("th", [_vm._v("Broj")]),
         _vm._v(" "),
         _c("th", [_vm._v("Osnovni Broj")]),
         _vm._v(" "),
         _c("th", [_vm._v("Predmet")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Datum Kreiranja")]),
+        _c("th", [_vm._v("Posiljalac")]),
         _vm._v(" "),
         _c("th", [_vm._v("Pregled")])
       ])
@@ -41918,6 +41918,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -42016,9 +42018,9 @@ var render = function() {
             _c(
               "tbody",
               _vm._l(_vm.temp, function(item) {
-                return _c("tr", { key: item.id }, [
+                return _c("tr", [
                   _c("td", { staticClass: "table-client" }, [
-                    _vm._v(_vm._s(item.client.naziv))
+                    _vm._v(_vm._s(item.naziv))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-number" }, [
@@ -42026,7 +42028,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
-                    _vm._v(_vm._s(item.invoice_item.opis))
+                    _vm._v(_vm._s(item.opis))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
@@ -42035,6 +42037,10 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text" }, [
                     _vm._v(_vm._s(item.valuta))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "table-text" }, [
+                    _vm._v(_vm._s(item.jedinica_mere))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "table-text has-text-centered" }, [
@@ -42077,6 +42083,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("Napomena")]),
         _vm._v(" "),
         _c("th", [_vm._v("Valuta")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Jedinica Mere")]),
         _vm._v(" "),
         _c("th", [_vm._v("Pregled")])
       ])

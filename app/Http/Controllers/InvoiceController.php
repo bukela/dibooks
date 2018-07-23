@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Client;
 use App\Invoice;
 use App\InvoiceItem;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\InvoiceRequest;
 use Illuminate\Support\Facades\Session;
@@ -157,8 +158,15 @@ class InvoiceController extends Controller
 
     public function getinvoice() {
 
-        $invoice = Invoice::with('invoice_item','client')->get();
+        // $invoice = Invoice::with('invoice_item','client')->get();
 
-        return $invoice;
+        $invoices = DB::table('invoices')
+        ->join('invoice_items', 'invoices.id', '=', 'invoice_items.invoice_id')
+        ->join('clients', 'clients.id', '=', 'invoices.client_id')
+        ->select('clients.naziv','invoices.broj_fakture','invoices.valuta','invoices.id',
+        'invoice_items.opis','invoice_items.jedinica_mere', 'invoices.napomena','invoice_items.id as iid')
+        ->get();
+
+        return $invoices;
     }
 }

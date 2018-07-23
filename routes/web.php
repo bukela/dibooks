@@ -1,5 +1,7 @@
 <?php
 
+use App\Invoice;
+
 
 
 /*
@@ -47,6 +49,7 @@ Route::get('/delovodnik/kreiraj', 'WorkbookController@create')->name('addWorkboo
 Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
 Route::get('/delovodnik/{id}', 'WorkbookController@show')->name('workbook.show');
 Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workbook.delete');
+Route::get('/workbook-item/delete/{id}', 'WorkbookItemController@destroy')->name('workbook_item.delete');
 Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
 Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
 
@@ -74,4 +77,22 @@ Route::get('/test', function() {
     // }
     // $workbooks = Workbook::find(5)->load('workbook_item');
     // print_r($workbooks);
+    // $invoice = Invoice::with('invoice_item','client')->get()->map(function ($item) {
+    //     return collect($item)->values();
+    // });
+
+        // $invoice_flat = $invoice->flatten();
+
+        // $invoice_flat->all();
+        // $workbooks = DB::table('workbooks')
+        //    ->join('workbook_items', 'workbooks.id', '=', 'workbook_items.workbook_id')
+        //    ->select('workbook_items.broj','workbooks.osnovni_broj', 'workbook_items.posiljalac')
+        //    ->get();
+         $invoice = DB::table('invoices')
+        ->join('invoice_items', 'invoices.id', '=', 'invoice_items.invoice_id')
+        ->join('clients', 'clients.id', '=', 'invoices.client_id')
+        ->select('clients.naziv','invoices.broj_fakture','invoices.valuta','invoices.id',
+        'invoice_items.opis','invoice_items.jedinica_mere', 'invoices.napomena','invoice_items.id as iid')
+        ->get();
+        return $invoice;
 });

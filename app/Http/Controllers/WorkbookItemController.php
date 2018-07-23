@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\WorkbookItem;
 use App\Workbook_item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class WorkbookItemController extends Controller
 {
@@ -83,8 +85,12 @@ class WorkbookItemController extends Controller
      * @param  \App\Workbook_item  $workbook_item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workbook_item $workbook_item)
+    public function destroy($id)
     {
-        //
+        $workbook_item = WorkbookItem::findOrFail($id);
+        $workbook_item->delete();
+
+        Session::flash('success', 'Item Obrisan');
+        return redirect()->back();
     }
 }

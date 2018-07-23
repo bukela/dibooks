@@ -217,7 +217,12 @@ class WorkbookController extends Controller
 
     public function getworkbooks() {
         
-        $workbooks = Workbook::with('workbook_item')->get();
+        // $workbooks = Workbook::with('workbook_item')->get();
+        $workbooks = DB::table('workbooks')
+           ->join('workbook_items', 'workbooks.id', '=', 'workbook_items.workbook_id')
+           ->select('workbooks.id','workbook_items.broj','workbook_items.id as wid','workbooks.osnovni_broj', 'workbook_items.posiljalac','workbooks.predmet')
+           ->get();
+    //    return $workbooks;
 
         return $workbooks;
     }
