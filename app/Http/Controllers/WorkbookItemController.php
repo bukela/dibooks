@@ -44,7 +44,7 @@ class WorkbookItemController extends Controller
     {
         $workbook_item = new WorkbookItem;
 
-        $workbook_item->workbook_id = $request->id;
+        $workbook_item->workbook_id = $request->workbook_id;
         $workbook_item->broj = $request->broj;
         $workbook_item->posiljalac = $request->posiljalac;
         $workbook_item->podbroj = $request->podbroj;
@@ -55,7 +55,7 @@ class WorkbookItemController extends Controller
 
         Session::flash('success', 'Item kreiran');
         
-        return redirect()->back();
+        return redirect(route('workbooks'));
     }
 
     /**

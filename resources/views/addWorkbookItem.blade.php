@@ -35,14 +35,14 @@
                             <div class="field">
                                 <label class="label">Posiljalac</label>
                                 <div class="control">
-                                    <input class="input" name="posiljalac" value="{{ old('posiljalac') }}" type="text" placeholder="Posiljalac">
+                                    <input class="input" name="posiljalac" type="text" placeholder="Posiljalac">
                                 </div>
                             </div>
 
                             <div class="field">
                                 <label class="label">Broj</label>
                                 <div class="control">
-                                    <input class="input" name="broj" value="{{ old('broj') }}" type="text" placeholder="Broj">
+                                    <input class="input" name="broj" type="text" placeholder="Broj">
                                 </div>
                             </div>
 
@@ -53,6 +53,13 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="field hide-me">
+                        <div class="control has-text-centered">
+                            <input class="input" name="workbook_id" value="{{ basename(request()->path()) }}" type="text" placeholder="Datum"></input>
+                        </div>
+                        </div>
+                        
                         <div class="field">
                             <div class="control has-text-centered">
                                 <button class="button is-primary is-outlined" type="submit">Submit</button>
