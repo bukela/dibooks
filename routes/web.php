@@ -38,6 +38,10 @@ Route::get('/invoice/delete/{id}', 'InvoiceController@destroy')->name('invoice.d
 Route::get('/faktura/izmeni/{id}', 'InvoiceController@edit')->name('invoice.edit');
 Route::post('/invoice/update/{id}', 'InvoiceController@update')->name('invoice.update');
 
+Route::get('/invoice-item/delete/{id}', 'InvoiceItemsController@destroy')->name('invoice_item.delete');
+Route::get('/faktura-item/kreiraj/{invoice_id}', 'InvoiceItemsController@create')->name('invoice_item.create');
+Route::post('/invoice-item/store', 'InvoiceItemsController@store')->name('invoice_item.store');
+
 Route::get('/ulazna-faktura/kreiraj', 'IncomingInvoicesController@create')->name('addIncomingInvoice');
 Route::post('/incoming-invoice/store', 'IncomingInvoicesController@store')->name('addIncomingInvoice.store');
 Route::get('/ulazna-faktura/{id}', 'IncomingInvoicesController@show')->name('incoming.show');

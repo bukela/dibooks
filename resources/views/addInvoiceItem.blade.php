@@ -7,7 +7,7 @@
                 <nav class="card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            <span class="username">DODAJ FAKTURU&nbsp;&nbsp;<i class="fa fa-folder-open"></i></span>
+                            <span class="username">DODAJ FAKTURA ITEM&nbsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;<i class="fa fa-folder-open"></i></span>
                         </p>
                     </header>
 
@@ -15,50 +15,9 @@
                             @include('layouts.errors')
                             {{-- @include('layouts.success') --}}
                             
-                            <form action="{{ route('addInvoice.store') }}" method="post">
+                            <form action="{{ route('invoice_item.store') }}" method="post">
                                 {{ csrf_field() }}
-                            <div class="field">
-                            <label class="label">Klijent</label>
-                            <div class="select is-small">
-                                    <select name="client_id" id="client_id">
-                                            @foreach ($clients as $client)
-                                                <option value="" selected disabled hidden>Izaberi klijenta</option>
-                                                <option value="{{ $client->id }}">{{ $client->naziv }}</option>
-                                            @endforeach
-                                    </select>
-                            </div>
-                            </div>
 
-                            <div class="field">
-                                <label class="label">Broj Fakture</label>
-                                <div class="control">
-                                    <input class="input" name="broj_fakture" value="{{ old('broj_fakture') }}" type="text" placeholder="Broj Fakture">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Valuta</label>
-                                <div class="select is-small">
-                                        <select name="valuta" id="valuta">
-                                            <option value="RSD">RSD</option>
-                                            <option value="EUR">EUR</option>
-                                            <option value="USD">USD</option>
-                                        </select>
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Placen Iznos</label>
-                                <div class="control">
-                                    <input class="input" name="placen_iznos" value="{{ old('placen_iznos') }}" type="text" placeholder="Placen Iznos">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <label class="label">Napomena</label>
-                                <div class="control">
-                                        <textarea class="textarea" name="napomena" type="text" placeholder="Napomena"></textarea>
-                                </div>
-                            </div>
                             {{-- invoice items --}}
                             <div class="field">
                                 <label class="label">Opis</label>
@@ -110,12 +69,11 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="field">
-                                <label class="label">Vrednost sa PDV</label>
-                                <div class="control">
-                                        <textarea class="input" name="vrednost_sa_pdv" type="text" placeholder="Vrednost sa PDV"></textarea>
+                            <div class="field hide-me">
+                                <div class="control has-text-centered">
+                                    <input class="input" name="invoice_id" value="{{ basename(request()->path()) }}" type="text"></input>
                                 </div>
-                            </div> --}}
+                                </div>
 
                             <div class="field">
                                 <div class="control has-text-centered">
@@ -123,7 +81,7 @@
                                 </div>
                             </div>
                         </form>
-                        <span class="username"><a href="{{ route('invoice_item.create',['4' => 'invoice_id']) }}" class="witem"><i class="fa fa-plus"></i>&nbsp;Dodaj Item</a></span>
+                            
                     </div>
                 </nav>
             </div>

@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </form>
-                            
+                        <span class="username"><a href="{{ route('invoice_item.create',$invoice->id) }}" class="witem"><i class="fa fa-plus"></i>&nbsp;Dodaj Item</a></span>
                     </div>
                 </nav>
             </div>

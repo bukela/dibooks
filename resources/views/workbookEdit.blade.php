@@ -10,7 +10,7 @@
                             <span class="username">IZMENI DELOVODNIK&nbsp;&nbsp;<i class="fa fa-book"></i></span>
                         </p>
                     </header>
-{{$workbooks->id}}
+                    {{-- {{$workbooks->id}} --}}
                     <div class="card-content">
                             @include('layouts.errors')
                             {{-- @include('layouts.success') --}}

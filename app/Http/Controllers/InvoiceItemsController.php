@@ -24,7 +24,7 @@ class InvoiceItemsController extends Controller
      */
     public function create()
     {
-        //
+        return view('addInvoiceItem');
     }
 
     /**
@@ -35,7 +35,24 @@ class InvoiceItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invoice_item = new InvoiceItem;
+
+        $invoice_item->workbook_id = $request->invoice_id;
+        $invoice_item->opis = $request->opis;
+        $invoice_item->jedinica_mere = $request->jedinica_mere;
+        $invoice_item->kolicina = $request->kolicina;
+        $invoice_item->iznos = $request->iznos;
+        $invoice_item->vrednost = $request->vrednost;
+        $invoice_item->osnovica = $request->osnovica;
+        $invoice_item->iznos_pdv = $request->iznos_pdv;
+        $pdv = ($request->vrednost / 100)*$request->iznos_pdv;
+        $invoice_item->vrednost_sa_pdv = round($request->vrednost + $pdv, 2);
+        // dd($workbook_item);
+        $invoice_item->save();
+
+        Session::flash('success', 'Item kreiran');
+        
+        return redirect(route('invoices'));
     }
 
     /**
@@ -78,8 +95,12 @@ class InvoiceItemsController extends Controller
      * @param  \App\InvoiceItems  $invoiceItems
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InvoiceItems $invoiceItems)
+    public function destroy($id)
     {
-        //
+        $invoice_item = InvoiceItems::findOrFail($id);
+        $invoice_item->delete();
+
+        Session::flash('success', 'Item Obrisan');
+        return redirect(route('invoices'));
     }
 }

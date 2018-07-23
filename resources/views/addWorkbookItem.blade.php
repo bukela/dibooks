@@ -56,7 +56,7 @@
 
                         <div class="field hide-me">
                         <div class="control has-text-centered">
-                            <input class="input" name="workbook_id" value="{{ basename(request()->path()) }}" type="text" placeholder="Datum"></input>
+                            <input class="input" name="workbook_id" value="{{ basename(request()->path()) }}" type="text"></input>
                         </div>
                         </div>
                         
