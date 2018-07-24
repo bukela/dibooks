@@ -52,8 +52,8 @@
                                       <td class="table-text">{{ $invo_item->osnovica }}</td>
                                       <td class="table-text">{{ $invo_item->iznos_pdv }} %</td>
                                       <td class="table-text">{{ $invo_item->vrednost_sa_pdv }}</td>
-                                      <td class="table-text">
-                                        <span class="field"><a href="{{ route('invoice_item.edit',$invo_item->id) }}" >&nbsp;&nbsp;<i class="fa fa-edit edit-ico"></i></a></span>&nbsp;
+                                      <td class="table-text has-text-centered">
+                                        <span class="field"><a href="{{ route('invoice_item.edit',$invo_item->id) }}" ><i class="fa fa-edit edit-ico"></i></a></span>&nbsp;
                                         <span class="field"><a href="{{ route('invoice_item.delete',$invo_item->id) }}" onclick="return confirm('Brisanje ?')" ><i class="fa fa-trash-alt trash"></i></a></span>
                                       </td>
                                   </tr>

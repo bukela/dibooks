@@ -138,6 +138,10 @@ span .page-link {
     border-bottom: solid 2px #00D1B2; 
 }
 
+.num-field {
+    width: auto !important;
+}
+
 /* .table-client {
     width: 30%;
 }
