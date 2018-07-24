@@ -86,8 +86,8 @@ class InvoiceController extends Controller
      */
     public function show($id)
     {
-        $invoice = Invoice::findOrFail($id);
-        return view('invoiceShow', compact('invoice'));
+        $invoices = Invoice::findOrFail($id);
+        return view('invoiceShow', compact('invoices'));
     }
 
     /**
@@ -98,10 +98,10 @@ class InvoiceController extends Controller
      */
     public function edit($id)
     {
-        $invoice = Invoice::findOrFail($id);
+        $invoices = Invoice::findOrFail($id);
         // $invoices = Invoice::all();
         $clients = Client::all();
-        return view('invoiceEdit', compact('invoice', 'clients'));
+        return view('invoiceEdit', compact('invoices', 'clients'));
     }
 
     /**
@@ -114,7 +114,7 @@ class InvoiceController extends Controller
     public function update(InvoiceRequest $request, $id)
     {
         $invoice = Invoice::findOrFail($id);
-        $invoice_item =  InvoiceItem::where('invoice_id', $id)->first();
+        // $invoice_item =  InvoiceItem::where('invoice_id', $id)->first();
 
         $invoice->client_id = $request->client_id;
         $invoice->broj_fakture = $request->broj_fakture;
@@ -123,22 +123,10 @@ class InvoiceController extends Controller
         $invoice->napomena = $request->napomena;
 
         $invoice->save();
-
-        $invoice_item->opis = $request->opis;
-        $invoice_item->jedinica_mere = $request->jedinica_mere;
-        $invoice_item->kolicina = $request->kolicina;
-        $invoice_item->iznos = $request->iznos;
-        $invoice_item->vrednost = $request->vrednost;
-        $invoice_item->osnovica = $request->osnovica;
-        $invoice_item->iznos_pdv = $request->iznos_pdv;
-        $pdv = ($request->vrednost / 100)*$request->iznos_pdv;
-        $invoice_item->vrednost_sa_pdv = round($request->vrednost + $pdv, 2);
-        // $invoice_item->vrednost_sa_pdv = $request->vrednost_sa_pdv;
-        
-        $invoice_item->save();
         
         Session::flash('info', 'Faktura Izmenjena');
-        return redirect(route('invoices'));
+        $url = '/faktura/'.$invoice->id;
+        return redirect($url);
     }
 
     /**

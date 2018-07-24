@@ -5,7 +5,7 @@
 
 .witem {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     color: #00D1B2;
     text-decoration: none;
 }
@@ -131,6 +131,11 @@ span .page-link {
 
 .hide-me {
     display: none;
+}
+
+.item-border {
+    padding-bottom: 15px;
+    border-bottom: solid 2px #00D1B2; 
 }
 
 /* .table-client {

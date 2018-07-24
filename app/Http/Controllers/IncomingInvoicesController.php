@@ -102,6 +102,7 @@ class IncomingInvoicesController extends Controller
         $incoming->datum_placanja = date("Y-m-d", strtotime($request->input('datum_placanja')));
         $incoming->iznos = $request->input('iznos');
         $incoming->broj_izvoda = $request->input('broj_izvoda');
+        $incoming->redni_broj = $request->input('redni_broj');
         $incoming->valuta = $request->input('valuta');
         $incoming->save();
         

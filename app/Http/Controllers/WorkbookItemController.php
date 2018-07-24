@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Workbook;
 use App\WorkbookItem;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\WorkbookItemEditRequest;
 
 class WorkbookItemController extends Controller
 {
@@ -58,7 +59,7 @@ class WorkbookItemController extends Controller
         
         // return redirect(route('workbooks'));
         // $url = redirect()->getUrlGenerator()->previous();
-        $url = '/delovodnik/izmeni/'.$request->workbook_id;
+        $url = '/delovodnik/'.$request->workbook_id;
         return redirect($url);
        
     }
@@ -93,7 +94,7 @@ class WorkbookItemController extends Controller
      * @param  \App\Workbook_item  $workbook_item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WorkbookItemEditRequest $request, $id)
     {
             $workbook_item = WorkbookItem::findOrFail($id);
             $workbook_item->workbook_id = $request->workbook_id;
@@ -108,7 +109,7 @@ class WorkbookItemController extends Controller
 
             Session::flash('info', 'Delovodnik Item Izmenjen');
             // return redirect()->back();
-            $url = '/delovodnik/izmeni/'.$request->workbook_id;
+            $url = '/delovodnik/'.$request->workbook_id;
             return redirect($url);
     }
 
