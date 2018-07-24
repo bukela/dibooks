@@ -182,6 +182,7 @@ class WorkbookController extends Controller
         $workbooks = DB::table('workbooks')
            ->join('workbook_items', 'workbooks.id', '=', 'workbook_items.workbook_id')
            ->select('workbooks.id','workbook_items.broj','workbook_items.id as wid','workbooks.osnovni_broj', 'workbook_items.posiljalac','workbooks.predmet')
+           ->orderBy('workbooks.id', 'DESC')
            ->get();
     //    return $workbooks;
 

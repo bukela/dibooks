@@ -53,7 +53,7 @@
                                 </div>
                             </div>
 
-                            <div class="field">
+                            <div class="field item-border">
                                 <label class="label">Napomena</label>
                                 <div class="control">
                                         <textarea class="textarea" name="napomena" type="text" placeholder="Napomena"></textarea>
