@@ -53,11 +53,14 @@ Route::get('/delovodnik/kreiraj', 'WorkbookController@create')->name('addWorkboo
 Route::post('/workbook/store', 'WorkbookController@store')->name('addWorkbook.store');
 Route::get('/delovodnik/{id}', 'WorkbookController@show')->name('workbook.show');
 Route::get('/workbook/delete/{id}', 'WorkbookController@destroy')->name('workbook.delete');
-Route::get('/workbook-item/delete/{id}', 'WorkbookItemController@destroy')->name('workbook_item.delete');
-Route::get('/delovodnik-item/kreiraj/{workbook_id}', 'WorkbookItemController@create')->name('workbook_item.create');
-Route::post('/workbook-item/store', 'WorkbookItemController@store')->name('workbook_item.store');
 Route::get('/delovodnik/izmeni/{id}', 'WorkbookController@edit')->name('workbook.edit');
 Route::post('/workbook/update/{id}', 'WorkbookController@update')->name('workbook.update');
+
+Route::get('/workbook-item/delete/{id}', 'WorkbookItemController@destroy')->name('workbook_item.delete');
+Route::get('/delovodnik-item/kreiraj/{workbook_id}', 'WorkbookItemController@create')->name('workbook_item.create');
+Route::get('/delovodnik-item/izmeni/{id}', 'WorkbookItemController@edit')->name('workbook_item.edit');
+Route::post('/workbook-item/update/{id}', 'WorkbookItemController@update')->name('workbook_item.update');
+Route::post('/workbook-item/store', 'WorkbookItemController@store')->name('workbook_item.store');
 
 // Route::get('/klijent', 'LiveSearch@index');
 // ajax search routes
