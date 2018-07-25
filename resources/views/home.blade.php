@@ -14,6 +14,9 @@
                     <div class="card-content">
                        <span class="username">{{ Auth::user()->name }}</span> You are logged in!
                     </div>
+                    <div class="card-content">
+                        <a href="{{ route('sendEmail') }}" class="button is-primary is-outlined">Send Email</a>
+                    </div>
                 </nav>
             </div>
         </div>
