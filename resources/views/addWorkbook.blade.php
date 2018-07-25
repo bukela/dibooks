@@ -20,7 +20,7 @@
                         <div class="field">
                             <label class="label">Osnovni Broj</label>
                             <div class="control">
-                                <input class="input" name="osnovni_broj" value="{{ old('osnovni_broj') }}" type="text" placeholder="Osnovni Broj">
+                                <input class="input num-field" name="osnovni_broj" value="{{ old('osnovni_broj') }}" type="text" placeholder="Osnovni Broj">
                             </div>
                         </div>
 
@@ -34,7 +34,8 @@
                         {{-- workbook items --}}
                         <div class="field is-grouped podbroj">
                             <div class="field">
-                                <label class="label"><span class="username">1&nbsp;</span>Podbroj</label>
+                                {{-- <label class="label"><span class="username">1&nbsp;</span>Podbroj</label> --}}
+                                <label class="label">Podbroj</label>
                                 <div class="control">
                                     <input class="input" name="podbroj" type="text" placeholder="Podbroj"></input>
                                 </div>
@@ -69,7 +70,7 @@
                             </div>
                         </div>
                         {{-- podbroj 2 --}}
-                        <div class="field is-grouped podbroj">
+                        {{-- <div class="field is-grouped podbroj">
                             <div class="field">
                                 <label class="label"><span class="username">2&nbsp;</span>Podbroj</label>
                                 <div class="control">
@@ -106,7 +107,7 @@
                             </div>
                         </div>
                         {{-- podbroj 3 --}}
-                        <div class="field is-grouped podbroj">
+                        {{-- <div class="field is-grouped podbroj">
                             <div class="field">
                                 <label class="label"><span class="username">3&nbsp;</span>Podbroj</label>
                                 <div class="control">
@@ -141,7 +142,7 @@
                                     <input class="input input-date" name="datum_3" type="date" placeholder="Datum"></input>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="field">
                             <div class="control has-text-centered">

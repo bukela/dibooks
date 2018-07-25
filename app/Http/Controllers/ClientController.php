@@ -113,7 +113,7 @@ class ClientController extends Controller
 
     public function getclients() {
 
-        $clients = Client::all();
+        $clients = Client::orderBy('naziv')->get();
 
         return $clients;
     }

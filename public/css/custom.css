@@ -56,15 +56,26 @@
     width: auto;
 }
 
-@media print {
+/* @media print {
     #Header, #Footer, .print-window { 
         display: none !important;
         width: 100%;
      }
      @page {size: A4 landscape; }
- }
+ } */
 
-
+ @page {
+    size: A4;
+    margin: 0;
+  }
+  @media print {
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+    /* ... the rest of the rules ... */
+  }
+  
  .trash {
      color: red;
      padding: 0 0 0 2px;

@@ -74,7 +74,7 @@
                                         <input class="input" name="osnovica" type="text" value="{{ $invoices->osnovica }}" placeholder="Osnovica"></input>
                                 </div>
                             </div>
-                            <div class="field item-border">
+                            <div class="field">
                                 <label class="label">Iznos PDV</label>
                                 <div class="control">
                                         <input class="input" name="iznos_pdv" type="text" value="{{ $invoices->iznos_pdv }}" placeholder="Iznos PDV"></input>

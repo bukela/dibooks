@@ -74,8 +74,9 @@ class InvoiceController extends Controller
 
 
         Session::flash('success', 'Faktura kreirana');
-        
-        return redirect(route('addInvoice'));
+        $url = '/faktura/'.Invoice::latest()->first()->id;
+        return redirect($url);
+        // return redirect(route('addInvoice'));
     }
 
     /**
@@ -153,6 +154,7 @@ class InvoiceController extends Controller
         ->join('clients', 'clients.id', '=', 'invoices.client_id')
         ->select('clients.naziv','invoices.broj_fakture','invoices.valuta','invoices.id',
         'invoice_items.opis','invoice_items.jedinica_mere', 'invoices.napomena','invoice_items.id as iid')
+        ->orderBy('invoices.id', 'DESC')
         ->get();
 
         return $invoices;
