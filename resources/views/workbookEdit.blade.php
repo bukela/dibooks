@@ -26,7 +26,7 @@
                             <div class="field">
                                 <label class="label">Osnovni Broj</label>
                                 <div class="control">
-                                    <input class="input" name="osnovni_broj" value="{{ $workbooks->osnovni_broj }}" type="text" placeholder="Osnovni Broj">
+                                    <input class="input num-field" name="osnovni_broj" value="{{ $workbooks->osnovni_broj }}" type="text" placeholder="Osnovni Broj">
                                 </div>
                             </div>
 

@@ -35,7 +35,7 @@
                                 <td class="table-text">{{ $incoming->iznos }}</td>
                                 <td class="table-text">{{ $incoming->broj_izvoda }}</td>
                                 <td class="table-text">{{ $incoming->valuta }}</td>
-                                <td class="table-text has-text-centered"><a href="{{ route('incoming.edit',$incoming->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('incoming.delete',$incoming->id) }}" onclick="return confirm('Brisanje Ulazne Fakture ?')"><i class="fa fa-trash-alt trash"></i></a></td>
+                                <td class="table-text has-text-centered"><a href="{{ route('incoming.edit',$incoming->id) }}"><i class="fa fa-edit edit-ico"></i></a><a href="{{ route('incoming.delete',$incoming->id) }}" onclick="return confirm('Brisanje Ulazne Fakture ?')">&nbsp;<i class="fa fa-trash-alt trash"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
