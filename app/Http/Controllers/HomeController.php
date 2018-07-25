@@ -29,6 +29,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function mail()
+    {
+        return view('sendEmail');
+    }
+
     public function email() {
         Mail::to(Auth::user()->email)->send(new NewInvoice());
         return redirect('/delovodnici');
