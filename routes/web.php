@@ -64,10 +64,7 @@ Route::get('/delovodnik-item/izmeni/{id}', 'WorkbookItemController@edit')->name(
 Route::post('/workbook-item/update/{id}', 'WorkbookItemController@update')->name('workbook_item.update');
 Route::post('/workbook-item/store', 'WorkbookItemController@store')->name('workbook_item.store');
 
-// Route::get('/klijent', 'LiveSearch@index');
-// ajax search routes
-// Route::get('/live_search/clients', 'LiveSearch@clients')->name('live_search.clients');
-// Route::get('/live_search/workbooks', 'LiveSearch@workbooks')->name('live_search.workbooks');
+Route::get('/email','HomeController@email')->name('sendEmail');
 
 Route::get('/getworkbooks', 'WorkbookController@getworkbooks');
 // Route::get('/searchworkbooks', 'WorkbookController@searchworkbooks');

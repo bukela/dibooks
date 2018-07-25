@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
+use App\Mail\NewInvoice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -24,5 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function email() {
+        Mail::to(Auth::user()->email)->send(new NewInvoice());
+        return redirect('/delovodnici');
     }
 }
